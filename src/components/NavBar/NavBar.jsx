@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styles from './NavBar.module.css'
-import Logo from '../../assets/branding/logo.svg'
+// import Logo from '../../assets/branding/logo.svg'
 
 const NavBar = ({ user, handleLogout }) => {
 
@@ -12,21 +12,19 @@ const NavBar = ({ user, handleLogout }) => {
   )
 
   const protectedLinks = (
-    <nav>
-      {user ?
-        <ul>
-          <li>Welcome, {user.name}</li>
-          <li><Link to="/profiles">Profiles</Link></li>
-          <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-          <li><Link to="/change-password">Change Password</Link></li>
-        </ul>
-      :
-        <ul>
-          <li><Link to="/login">Log In</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-        </ul>
-      }
-    </nav>
+  
+      <ul>
+      {/* <li>Welcome, {user.name}</li> */}
+      <li><NavLink to="/profiles">Profiles</NavLink></li>
+      <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
+      <li><NavLink to="/change-password">Change Password</NavLink></li>
+      </ul>
+  )
+  return (
+  <nav className={styles.container}>
+  <NavLink to={'/'}>HOME</NavLink>
+  {user ? protectedLinks : publicLinks}
+  </nav>
   )
 }
 
