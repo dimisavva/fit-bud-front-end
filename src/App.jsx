@@ -15,6 +15,7 @@ import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
+import NewMeal from './pages/NewMeal/NewMeal'
 
 // services
 import * as authService from './services/authService'
@@ -38,6 +39,12 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddMeal = async (mealData) => {
+    const newMeal = await mealService.create(mealData)
+    setMeals([newMeal, ...meals])
+    navigate('/meals')
   }
 
   useEffect(() => {
@@ -108,6 +115,14 @@ const App = () => {
               <MealDetails user={user} />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path="/meals/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewMeal handleAddMeal={handleAddMeal} />
+            </ProtectedRoute>
+          } 
         />
         </Routes>
     </>
