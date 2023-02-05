@@ -13,7 +13,11 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
+<<<<<<< HEAD
 import ExerciseList from './pages/ExerciseList/ExerciseList'
+=======
+import MealDetails from './pages/MealDetails/MealDetails'
+>>>>>>> main
 
 // services
 import * as authService from './services/authService'
@@ -24,8 +28,8 @@ import * as exerciseService from './services/exerciseService'
 import './App.css'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
 
@@ -98,6 +102,14 @@ const App = () => {
           <ProtectedRoute user={user}>
             <ExerciseList exercises={exercises}/>
           </ProtectedRoute>
+          }
+        />
+        <Route 
+          path='/meals/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <MealDetails user={user} />
+            </ProtectedRoute>
           }
         />
         </Routes>
