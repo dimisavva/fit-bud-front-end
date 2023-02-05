@@ -13,6 +13,7 @@ const NewMeal = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    props.handleAddMeal(form)
   }
 
   return (
