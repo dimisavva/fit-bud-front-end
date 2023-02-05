@@ -13,6 +13,8 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
+import MealList from './pages/MealList/MealList'
+
 // services
 import * as authService from './services/authService'
 
@@ -54,14 +56,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/change-password"
-          element={
-            <ProtectedRoute user={user}>
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
-            </ProtectedRoute>
-          }
-        />
+        
       </Routes>
     </>
   )
