@@ -13,6 +13,7 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
+import MealDetails from './pages/MealDetails/MealDetails'
 
 // services
 import * as authService from './services/authService'
@@ -22,8 +23,8 @@ import * as mealService from './services/mealService'
 import './App.css'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
 
   const handleLogout = () => {
@@ -80,7 +81,15 @@ const App = () => {
               <MealList meals={meals}/>
             </ProtectedRoute>
           }
-          />
+        />
+        <Route 
+          path='/meals/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <MealDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
         </Routes>
     </>
   )
