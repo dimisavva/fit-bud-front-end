@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -16,6 +16,7 @@ import MealList from './pages/MealList/MealList'
 
 // services
 import * as authService from './services/authService'
+import * as mealService from './services/mealService'
 
 // styles
 import './App.css'
@@ -23,6 +24,7 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [meals, setMeals] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -33,6 +35,14 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() => {
+    const fetchAllMeals = async () => {
+      const data = await mealService.index()
+      setMeals(data)
+    }
+    if (user) fetchAllMeals()
+  }, [user])
 
   return (
     <>
@@ -67,7 +77,7 @@ const App = () => {
           path="/meals"
           element={
             <ProtectedRoute user={user}>
-              <MealList />
+              <MealList meals={meals}/>
             </ProtectedRoute>
           }
           />
