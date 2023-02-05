@@ -1,7 +1,3 @@
-main {
-  background-color: black;
-}
-
 .container {
   height: 100%;
   display: flex;
@@ -33,7 +29,7 @@ main {
 }
 
 .container button {
-  color: whitesmoke;
+
   font-weight: 600;
   margin: 21px 0px 0px 0px;
   background: var(--primary);
