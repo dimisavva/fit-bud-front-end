@@ -13,11 +13,8 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
-<<<<<<< HEAD
 import ExerciseList from './pages/ExerciseList/ExerciseList'
-=======
 import MealDetails from './pages/MealDetails/MealDetails'
->>>>>>> main
 
 // services
 import * as authService from './services/authService'
