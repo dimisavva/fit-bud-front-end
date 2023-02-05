@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -7,21 +7,25 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import BlogList from './pages/BlogList/BlogList'
+import MealList from './pages/MealList/MealList'
+import MealDetails from './pages/MealDetails/MealDetails'
 
 // services
 import * as authService from './services/authService'
+import * as mealService from './services/mealService'
 
 // styles
 import './App.css'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [user, setUser] = useState(authService.getUser())
+  const [meals, setMeals] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -32,6 +36,14 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() => {
+    const fetchAllMeals = async () => {
+      const data = await mealService.index()
+      setMeals(data)
+    }
+    if (user) fetchAllMeals()
+  }, [user])
 
   return (
     <>
@@ -55,14 +67,30 @@ const App = () => {
           }
         />
         <Route
-          path="/change-password"
+          path="/blogs"
           element={
             <ProtectedRoute user={user}>
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+              <BlogList />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/meals"
+          element={
+            <ProtectedRoute user={user}>
+              <MealList meals={meals}/>
             </ProtectedRoute>
           }
         />
-      </Routes>
+        <Route 
+          path='/meals/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <MealDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
+        </Routes>
     </>
   )
 }
