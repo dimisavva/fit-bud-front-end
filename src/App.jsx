@@ -12,7 +12,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-
+import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
 
 // services
@@ -56,8 +56,15 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        
-      </Routes>
+        <Route
+          path="/blogs"
+          element={
+            <ProtectedRoute user={user}>
+              <BlogList />
+            </ProtectedRoute>
+          }
+          />
+        </Routes>
     </>
   )
 }
