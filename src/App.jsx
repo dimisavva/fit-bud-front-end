@@ -15,8 +15,8 @@ import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
-import NewMeal from './pages/NewMeal/NewMeal'
 import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
+import NewMeal from './pages/NewMeal/NewMeal'
 
 // services
 import * as authService from './services/authService'
@@ -117,12 +117,12 @@ const App = () => {
           }
         />
         <Route
-        path='/exercises/:id'
-        element={
+          path='/exercises/:id'
+          element={
           <ProtectedRoute user={user}>
-            <ExerciseDetails user={user}/>
+            <ExerciseDetails user={user} />
           </ProtectedRoute>
-        }
+          }
         />
         <Route 
           path='/meals/:id'
