@@ -72,7 +72,7 @@ const App = () => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
     Navigate('/meals')
-
+  }
 
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
