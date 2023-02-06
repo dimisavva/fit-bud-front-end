@@ -19,6 +19,7 @@ import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 import NewMeal from './pages/NewMeal/NewMeal'
 import EditMeal from './pages/EditMeal/EditMeal'
 import NewExercise from './pages/NewExercise/NewExercise'
+import EditExercise from './pages/EditExercise/EditExercise'
 
 // services
 import * as authService from './services/authService'
@@ -59,6 +60,12 @@ const App = () => {
     setExercises([newExercise, ...exercises])
     Navigate('/exercises')
   
+  }
+
+  const handleUpdateExercise = async (exerciseData) => {
+    const updatedExercise = await exerciseService.update(exerciseData)
+    setExercises(exercises.map((b) => exerciseData._id === b._id ? updatedExercise : b))
+    Navigate('/exercises')
   }
 
 
@@ -156,6 +163,14 @@ const App = () => {
           <ProtectedRoute user={user}>
             <ExerciseDetails user={user} />
           </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/exercise/:id/edit'
+          element={
+            <ProtectedRoute user={user}>
+              <EditExercise handleUpdateExercise={handleUpdateExercise} />
+            </ProtectedRoute>
           }
         />
         <Route 
