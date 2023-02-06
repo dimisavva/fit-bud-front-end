@@ -30,8 +30,9 @@ const MealDetails = (props) => {
             {meal.author._id === props.user.profile && 
               <>
                 <Link to={`/meals/${id}/edit`} state={meal}>Edit</Link>
-                <button>Delete</button>
-              </>}
+                <button onClick={() =>props.handleDeleteMeal(id)}>Delete</button>
+              </>
+            }
           </span>
         </header>
         <p>{meal.description}</p>
