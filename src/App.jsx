@@ -72,7 +72,7 @@ const App = () => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
     Navigate('/meals')
-
+  }
 
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
@@ -87,9 +87,6 @@ const App = () => {
     Navigate('/exercises')
 
   }
-
-
-
 
 
   useEffect(() => {
@@ -212,25 +209,20 @@ const App = () => {
               <NewMeal handleAddMeal={handleAddMeal} />
             </ProtectedRoute>
           } 
-        />
-
-
-        
-        
-        
-        
+        /> 
         <Route 
           path='/exercises/new'
           element={
             <ProtectedRoute user={user}>
               <NewExercise handleAddExercise={handleAddExercise} />
-=======
+            </ProtectedRoute>
+          }
+        />
         <Route 
           path='/profiles/:id'
           element={
             <ProtectedRoute user={user}>
               <ProfileDetails user={user}/>
-
             </ProtectedRoute>
           }
         />
