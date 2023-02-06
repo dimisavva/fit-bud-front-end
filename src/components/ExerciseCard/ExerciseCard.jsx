@@ -6,15 +6,16 @@ import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
 
 
-const ExerciseCard = ({ exercise}) => {
+const ExerciseCard = ({ exercise }) => {
   return (
     <Link to={`/exercises/${exercise._id}`}>
       <article className={styles.container}>
         <header>
           <span>
             <h1>{exercise.title}</h1>
+
           </span>
-          <AuthorInfo content={exercise.category} />
+          <AuthorInfo content={exercise} />
         </header>
         <p>{exercise.text}</p>
       </article>
