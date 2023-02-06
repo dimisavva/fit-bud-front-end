@@ -55,14 +55,14 @@ const App = () => {
     setMeals([newMeal, ...meals])
     Navigate('/meals')
   }
-
+// update meal
   const handleUpdateMeal = async (mealData) => {
     const updatedMeal = await mealService.update(mealData)
     setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
     Navigate('/meals')
   }
 
-
+//delete meal
   const handleDeleteMeal = async (id) => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
