@@ -6,6 +6,7 @@ const EditMeal = (props) => {
   const { state } = useLocation()
   const [form, setForm] = useState(state)
 
+  console.log(state)
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
@@ -38,6 +39,7 @@ const EditMeal = (props) => {
           placeholder="Description"
           onChange={handleChange}
           />
+          console.log(button)
         <button type="submit">SUBMIT</button>
       </form>
     </main>

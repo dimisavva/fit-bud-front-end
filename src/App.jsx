@@ -16,6 +16,7 @@ import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
 import NewMeal from './pages/NewMeal/NewMeal'
+import EditMeal from './pages/EditMeal/EditMeal'
 
 // services
 import * as authService from './services/authService'
@@ -49,7 +50,7 @@ const App = () => {
 
   const handleUpdateMeal = async (mealData) => {
     const updatedMeal = await mealService.update(mealData)
-    setMeals(meals.map((meal) => mealData._id === meal._id ? updatedMeal : meal))
+    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
     navigate('/meals')
   }
 
@@ -129,6 +130,14 @@ const App = () => {
               <NewMeal handleAddMeal={handleAddMeal} />
             </ProtectedRoute>
           } 
+        />
+        <Route 
+          path="/meals/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditMeal handleUpdateMeal={handleUpdateMeal} />
+            </ProtectedRoute>
+          }
         />
         </Routes>
     </>
