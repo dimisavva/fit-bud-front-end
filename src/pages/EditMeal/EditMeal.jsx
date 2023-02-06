@@ -11,8 +11,9 @@ const EditMeal = (props) => {
     setForm({ ...form, [target.name]: target.value })
   }
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.handleUpdateMeal(form)
   }
 
   return (
@@ -39,7 +40,6 @@ const EditMeal = (props) => {
           placeholder="Description"
           onChange={handleChange}
           />
-          console.log(button)
         <button type="submit">SUBMIT</button>
       </form>
     </main>
