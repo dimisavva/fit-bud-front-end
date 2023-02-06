@@ -22,7 +22,11 @@ import EditMeal from './pages/EditMeal/EditMeal'
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
 import * as exerciseService from './services/exerciseService'
+
 import * as blogService from './services/blogService'
+
+import * as profileService from './services/profileService'
+
 
 // styles
 import './App.css'
@@ -33,6 +37,7 @@ const App = () => {
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
   const [blogs, setBlogs ] =useState([])
+  const [profiles, setProfiles] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -79,6 +84,7 @@ const App = () => {
     if (user) fetchAllExercises()
   }, [user])
 
+
   //Blog
   useEffect(() => {
     const fetchAllBlogs = async () => {
@@ -87,6 +93,16 @@ const App = () => {
     }
     if (user) fetchAllBlogs()
   }, [user])
+
+
+  useEffect(() => {
+    const fetchAllProfiles = async () => {
+      const data = await profileService.index()
+      setProfiles(data)
+    }
+    if (user) fetchAllProfiles()
+  }, [user])
+
 
   return (
     <>
@@ -105,7 +121,7 @@ const App = () => {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles profiles={profiles}/>
             </ProtectedRoute>
           }
         />
