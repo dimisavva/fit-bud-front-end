@@ -70,6 +70,12 @@ const App = () => {
     Navigate('/meals')
   }
 
+  const handleDeleteMeal = async (id) => {
+    const deletedMeal = await mealService.deleteMeal(id)
+    setMeals(meals.filter(m => m._id !== deletedMeal._id))
+    Navigate('/meals')
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -127,7 +133,7 @@ const App = () => {
           path='/meals/:id'
           element={
             <ProtectedRoute user={user}>
-              <MealDetails user={user} />
+              <MealDetails user={user} handleDeleteMeal={handleDeleteMeal} />
             </ProtectedRoute>
           }
         />
@@ -139,7 +145,6 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        
         </Routes>
     </>
   )
