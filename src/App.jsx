@@ -27,7 +27,7 @@ import * as exerciseService from './services/exerciseService'
 import './App.css'
 
 const App = () => {
-  const navigate = useNavigate()
+  const Navigate = useNavigate()
   const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
@@ -35,7 +35,7 @@ const App = () => {
   const handleLogout = () => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    Navigate('/')
   }
 
   const handleSignupOrLogin = () => {
@@ -45,13 +45,7 @@ const App = () => {
   const handleAddMeal = async (mealData) => {
     const newMeal = await mealService.create(mealData)
     setMeals([newMeal, ...meals])
-    navigate('/meals')
-  }
-
-  const handleUpdateMeal = async (mealData) => {
-    const updatedMeal = await mealService.update(mealData)
-    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
-    navigate('/meals')
+    Navigate('/meals')
   }
 
   useEffect(() => {
@@ -69,6 +63,12 @@ const App = () => {
     }
     if (user) fetchAllExercises()
   }, [user])
+
+  const handleUpdateMeal = async (mealData) => {
+    const updatedMeal = await mealService.update(mealData)
+    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
+    Navigate('/meals')
+  }
 
   return (
     <>
@@ -116,6 +116,14 @@ const App = () => {
           }
         />
         <Route 
+          path="/meals/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditMeal handleUpdateMeal={handleUpdateMeal} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
           path='/meals/:id'
           element={
             <ProtectedRoute user={user}>
@@ -131,14 +139,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        <Route 
-          path="/meals/:id/edit"
-          element={
-            <ProtectedRoute user={user}>
-              <EditMeal handleUpdateMeal={handleUpdateMeal} />
-            </ProtectedRoute>
-          }
-        />
+        
         </Routes>
     </>
   )
