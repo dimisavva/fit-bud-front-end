@@ -7,6 +7,7 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -25,7 +26,11 @@ import EditExercise from './pages/EditExercise/EditExercise'
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
 import * as exerciseService from './services/exerciseService'
+
+import * as blogService from './services/blogService'
+
 import * as profileService from './services/profileService'
+
 
 // styles
 import './App.css'
@@ -89,6 +94,16 @@ const App = () => {
   }, [user])
 
 
+  //Blog
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      const data = await blogService.index()
+      setBlogs (data)
+    }
+    if (user) fetchAllBlogs()
+  }, [user])
+
+
   useEffect(() => {
     const fetchAllProfiles = async () => {
       const data = await profileService.index()
@@ -96,20 +111,6 @@ const App = () => {
     }
     if (user) fetchAllProfiles()
   }, [user])
-
-  const handleUpdateMeal = async (mealData) => {
-    const updatedMeal = await mealService.update(mealData)
-    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
-    Navigate('/meals')
-  }
-
-
-  const handleDeleteMeal = async (id) => {
-    const deletedMeal = await mealService.deleteMeal(id)
-    setMeals(meals.filter(m => m._id !== deletedMeal._id))
-    Navigate('/meals')
-  }
-
 
 
   return (
@@ -137,7 +138,7 @@ const App = () => {
           path="/blogs"
           element={
             <ProtectedRoute user={user}>
-              <BlogList />
+              <BlogList blogs={blogs}/>
             </ProtectedRoute>
           }
           />
@@ -197,14 +198,8 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        
-        
-        
-        
-        
-        
-        
-        
+
+
         
         
         
@@ -214,6 +209,13 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewExercise handleAddExercise={handleAddExercise} />
+=======
+        <Route 
+          path='/profiles/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails user={user}/>
+
             </ProtectedRoute>
           }
         />
