@@ -13,12 +13,14 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import MealList from './pages/MealList/MealList'
+import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
 import NewMeal from './pages/NewMeal/NewMeal'
 
 // services
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
+import * as exerciseService from './services/exerciseService'
 
 // styles
 import './App.css'
@@ -27,6 +29,7 @@ const App = () => {
   const navigate = useNavigate()
   const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
+  const [exercises, setExercises ] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -50,6 +53,14 @@ const App = () => {
       setMeals(data)
     }
     if (user) fetchAllMeals()
+  }, [user])
+
+  useEffect(() => {
+    const fetchAllExercises = async () => {
+      const data = await exerciseService.index()
+      setExercises(data)
+    }
+    if (user) fetchAllExercises()
   }, [user])
 
   return (
@@ -87,6 +98,14 @@ const App = () => {
             <ProtectedRoute user={user}>
               <MealList meals={meals}/>
             </ProtectedRoute>
+          }
+          />
+        <Route 
+          path='/exercises'
+          element={
+          <ProtectedRoute user={user}>
+            <ExerciseList exercises={exercises}/>
+          </ProtectedRoute>
           }
         />
         <Route 
