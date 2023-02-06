@@ -60,17 +60,19 @@ const App = () => {
     Navigate('/meals')
   }
 
+// update meal
   const handleUpdateMeal = async (mealData) => {
     const updatedMeal = await mealService.update(mealData)
-    setMeals(meals.map((meal) => mealData._id === meal._id ? updatedMeal : meal))
+    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
     Navigate('/meals')
   }
 
+//delete meal
   const handleDeleteMeal = async (id) => {
     const deletedMeal = await mealService.deleteMeal(id)
-    setMeals(meals.filter(meal => meal._id !== deletedMeal._id))
+    setMeals(meals.filter(m => m._id !== deletedMeal._id))
     Navigate('/meals')
-  }
+
 
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
@@ -83,6 +85,7 @@ const App = () => {
     const updatedExercise = await exerciseService.update(exerciseData)
     setExercises(exercises.map((b) => exerciseData._id === b._id ? updatedExercise : b))
     Navigate('/exercises')
+
   }
 
 
