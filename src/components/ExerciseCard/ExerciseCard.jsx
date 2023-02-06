@@ -15,7 +15,7 @@ const ExerciseCard = ({ exercise }) => {
             <h1>{exercise.title}</h1>
 
           </span>
-          {/* <AuthorInfo content={exercise} /> */}
+          <AuthorInfo content={exercise} />
         </header>
         <p>{exercise.text}</p>
       </article>
