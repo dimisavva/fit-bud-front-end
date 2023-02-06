@@ -49,6 +49,19 @@ const App = () => {
     Navigate('/meals')
   }
 
+  const handleUpdateMeal = async (mealData) => {
+    const updatedMeal = await mealService.update(mealData)
+    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
+    Navigate('/meals')
+  }
+
+
+  const handleDeleteMeal = async (id) => {
+    const deletedMeal = await mealService.deleteMeal(id)
+    setMeals(meals.filter(m => m._id !== deletedMeal._id))
+    Navigate('/meals')
+  }
+
   useEffect(() => {
     const fetchAllMeals = async () => {
       const data = await mealService.index()
@@ -64,20 +77,6 @@ const App = () => {
     }
     if (user) fetchAllExercises()
   }, [user])
-
-  const handleUpdateMeal = async (mealData) => {
-    const updatedMeal = await mealService.update(mealData)
-    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
-    Navigate('/meals')
-  }
-
-
-  const handleDeleteMeal = async (id) => {
-    const deletedMeal = await mealService.deleteMeal(id)
-    setMeals(meals.filter(m => m._id !== deletedMeal._id))
-    Navigate('/meals')
-  }
-
 
   return (
     <>
