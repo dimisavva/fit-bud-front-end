@@ -16,6 +16,7 @@ import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
 import NewMeal from './pages/NewMeal/NewMeal'
+import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 
 // services
 import * as authService from './services/authService'
@@ -24,6 +25,7 @@ import * as exerciseService from './services/exerciseService'
 
 // styles
 import './App.css'
+
 
 const App = () => {
   const navigate = useNavigate()
@@ -113,6 +115,14 @@ const App = () => {
             <ExerciseList exercises={exercises}/>
           </ProtectedRoute>
           }
+        />
+        <Route
+        path='/exercises/:id'
+        element={
+          <ProtectedRoute user={user}>
+            <ExerciseDetails user={user}/>
+          </ProtectedRoute>
+        }
         />
         <Route 
           path='/meals/:id'
