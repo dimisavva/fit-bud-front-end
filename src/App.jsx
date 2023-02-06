@@ -18,6 +18,7 @@ import MealDetails from './pages/MealDetails/MealDetails'
 import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 import NewMeal from './pages/NewMeal/NewMeal'
 import EditMeal from './pages/EditMeal/EditMeal'
+import NewExercise from './pages/NewExercise/NewExercise'
 
 // services
 import * as authService from './services/authService'
@@ -180,6 +181,14 @@ const App = () => {
               <NewMeal handleAddMeal={handleAddMeal} />
             </ProtectedRoute>
           } 
+        />
+        <Route 
+          path='/exercises/new'
+          element={
+            <ProtectedRoute user={user}>
+              <NewExercise handleAddExercise={handleAddExercise} />
+            </ProtectedRoute>
+          }
         />
         </Routes>
     </>
