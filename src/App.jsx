@@ -121,6 +121,11 @@ const App = () => {
     if (user) fetchAllBlogs()
   }, [user])
 
+  const handleAddBlog = async (blogData) => {
+    const newBlog = await blogService.create(blogData)
+    setBlogs([newBlog, ...blogs])
+    Navigate('/blogs')
+  }
 
   useEffect(() => {
     const fetchAllProfiles = async () => {

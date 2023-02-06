@@ -26,7 +26,24 @@ const show = async (id) => {
   }
 }
 
-export { 
+const create = async (blogData) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(blogData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export {
   index,
-  show, 
+  show,
+  create,
 }
