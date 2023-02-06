@@ -22,6 +22,7 @@ import EditMeal from './pages/EditMeal/EditMeal'
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
 import * as exerciseService from './services/exerciseService'
+import * as blogService from './services/blogService'
 
 // styles
 import './App.css'
@@ -78,6 +79,15 @@ const App = () => {
     if (user) fetchAllExercises()
   }, [user])
 
+  //Blog
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      const data = await blogService.index()
+      setBlogs (data)
+    }
+    if (user) fetchAllBlogs()
+  }, [user])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -103,7 +113,7 @@ const App = () => {
           path="/blogs"
           element={
             <ProtectedRoute user={user}>
-              <BlogList />
+              <BlogList blogs={blogs}/>
             </ProtectedRoute>
           }
           />
