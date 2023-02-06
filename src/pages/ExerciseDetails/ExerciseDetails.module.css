@@ -1,5 +1,4 @@
 .container {
-  padding: 140px;
   height: 100%;
   display: flex;
   overflow: scroll;
@@ -85,4 +84,3 @@
 .container > section article p {
   text-indent: 0px;
 }
-
