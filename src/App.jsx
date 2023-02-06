@@ -72,6 +72,7 @@ const App = () => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
     Navigate('/meals')
+  }
 
 
   const handleAddExercise = async (exerciseData) => {
@@ -87,26 +88,26 @@ const App = () => {
     Navigate('/exercises')
 
   }
-
-
-
-
-
-  useEffect(() => {
+    useEffect(() => {
     const fetchAllMeals = async () => {
       const data = await mealService.index()
       setMeals(data)
     }
     if (user) fetchAllMeals()
-  }, [user])
+    }, [user])
+    
+    useEffect(() => {
+      const fetchAllExercises = async () => {
+        const data = await exerciseService.index()
+        setExercises(data)
+      }
+      if (user) fetchAllExercises()
+    }, [user])
 
-  useEffect(() => {
-    const fetchAllExercises = async () => {
-      const data = await exerciseService.index()
-      setExercises(data)
-    }
-    if (user) fetchAllExercises()
-  }, [user])
+
+
+
+
 
 
   //Blog
@@ -240,5 +241,6 @@ const App = () => {
     </>
   )
 }
+
 
 export default App
