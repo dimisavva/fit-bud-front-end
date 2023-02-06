@@ -23,7 +23,24 @@ const show = async (id) => {
     console.log(error)
   }
 }
+
+const create = async (exerciseData) => {
+  try{  
+  const res = await fetch(BASE_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(exerciseData)
+  })
+  return res.json()
+} catch (error) {
+  console.log(error)
+  }
+}
 export { 
   index,
   show,
+  create,
 }
