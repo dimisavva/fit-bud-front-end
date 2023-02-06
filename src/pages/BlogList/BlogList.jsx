@@ -1,4 +1,4 @@
-// import BlogCard from "../../components/BlogCard/BlogCard"
+import BlogCard from "../../components/BlogCard/BlogCard"
 import styles from './BlogList.module.css'
 
 const BlogList = (props) => {
@@ -7,9 +7,7 @@ const BlogList = (props) => {
 return (
   <main className={styles.container}>
     {props.blogs.map((blog) => (
-      <p key={blog._id}>
-        {blog.title}
-      </p>
+      <BlogCard key= {blog._id} blog={blog} />
     ))}
   </main>
   ) 
