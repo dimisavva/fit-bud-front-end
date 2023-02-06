@@ -50,6 +50,12 @@ const App = () => {
     Navigate('/meals')
   }
 
+  const handleAddExercise = async (exerciseData) => {
+    const newExercise = await exerciseService.create(exerciseData)
+    setExercises([newExercise, ...exercises])
+    Navigate('/exercises')
+  }
+
   useEffect(() => {
     const fetchAllMeals = async () => {
       const data = await mealService.index()

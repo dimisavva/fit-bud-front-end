@@ -31,7 +31,7 @@ const MealDetails = (props) => {
               <>
                 <Link to={`/meals/${id}/edit`} state={meal}>Edit</Link>
                 <button>Delete</button>
-            </>}
+              </>}
           </span>
         </header>
         <p>{meal.description}</p>

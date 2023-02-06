@@ -16,12 +16,12 @@ const index = async () => {
 const show = async (id) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
-      header: {'Authorization': `Bearer ${tokenService.getToken()}`},
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`},
     })
     return res.json()
   } catch (error) {
     console.log(error)
-  }
+    }
 }
 
 const create = async (exerciseData) => {
