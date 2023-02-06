@@ -22,6 +22,7 @@ import EditMeal from './pages/EditMeal/EditMeal'
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
 import * as exerciseService from './services/exerciseService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
@@ -32,6 +33,7 @@ const App = () => {
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
   const [blogs, setBlogs ] =useState([])
+  const [profiles, setProfiles] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -78,6 +80,30 @@ const App = () => {
     if (user) fetchAllExercises()
   }, [user])
 
+
+  useEffect(() => {
+    const fetchAllProfiles = async () => {
+      const data = await profileService.index()
+      setProfiles(data)
+    }
+    if (user) fetchAllProfiles()
+  }, [user])
+
+  const handleUpdateMeal = async (mealData) => {
+    const updatedMeal = await mealService.update(mealData)
+    setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
+    Navigate('/meals')
+  }
+
+
+  const handleDeleteMeal = async (id) => {
+    const deletedMeal = await mealService.deleteMeal(id)
+    setMeals(meals.filter(m => m._id !== deletedMeal._id))
+    Navigate('/meals')
+  }
+
+
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -95,7 +121,7 @@ const App = () => {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles profiles={profiles}/>
             </ProtectedRoute>
           }
         />
