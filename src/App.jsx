@@ -75,6 +75,11 @@ const App = () => {
     Navigate('/meals')
   }
 
+  const handleDeleteExercise = async (id) => {
+    const deletedExercise = await exerciseService.deleteExercise(id)
+    setExercises(exercises.filter(e => e._id !== deletedExercise._id))
+  }
+
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
     setExercises([newExercise, ...exercises])
@@ -242,6 +247,14 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path='/exercises/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <ExerciseDetails user={user} handleDeleteExercise={handleDeleteExercise} />
+            </ProtectedRoute>
+          }
+          />
         </Routes>
     </>
   )

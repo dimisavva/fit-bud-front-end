@@ -24,7 +24,7 @@ const ExerciseDetails = (props) => {
       <article>
         <header>
           <h1>{exercise.title}</h1>
-          {/* <span>
+          <span>
             <AuthorInfo content={exercise} />
 
             {exercise.author._id === props.user.profile && 
@@ -33,7 +33,7 @@ const ExerciseDetails = (props) => {
                 <button onClick={() =>props.handleDeleteExcercise(id)}>Delete</button>
               </>
             }
-          </span> */}
+          </span>
         </header>
         <p>{exercise.text}</p>
       </article>
