@@ -209,7 +209,9 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewExercise handleAddExercise={handleAddExercise} />
-=======
+            </ProtectedRoute>
+            }
+          />
         <Route 
           path='/profiles/:id'
           element={
