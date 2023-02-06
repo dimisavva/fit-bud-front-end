@@ -31,6 +31,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
+  const [blogs, setBlogs ] =useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -69,6 +70,8 @@ const App = () => {
     }
     if (user) fetchAllExercises()
   }, [user])
+
+
 
   return (
     <>
