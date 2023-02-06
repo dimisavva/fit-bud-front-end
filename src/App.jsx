@@ -74,7 +74,6 @@ const App = () => {
     Navigate('/meals')
   }
 
-
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
     setExercises([newExercise, ...exercises])
@@ -88,26 +87,23 @@ const App = () => {
     Navigate('/exercises')
 
   }
-    useEffect(() => {
+
+
+  useEffect(() => {
     const fetchAllMeals = async () => {
       const data = await mealService.index()
       setMeals(data)
     }
     if (user) fetchAllMeals()
-    }, [user])
-    
-    useEffect(() => {
-      const fetchAllExercises = async () => {
-        const data = await exerciseService.index()
-        setExercises(data)
-      }
-      if (user) fetchAllExercises()
-    }, [user])
+  }, [user])
 
-
-
-
-
+  useEffect(() => {
+    const fetchAllExercises = async () => {
+      const data = await exerciseService.index()
+      setExercises(data)
+    }
+    if (user) fetchAllExercises()
+  }, [user])
 
 
   //Blog
@@ -213,27 +209,20 @@ const App = () => {
               <NewMeal handleAddMeal={handleAddMeal} />
             </ProtectedRoute>
           } 
-        />
-
-
-        
-        
-        
-        
+        /> 
         <Route 
           path='/exercises/new'
           element={
             <ProtectedRoute user={user}>
               <NewExercise handleAddExercise={handleAddExercise} />
             </ProtectedRoute>
-            }
-          />
+          }
+        />
         <Route 
           path='/profiles/:id'
           element={
             <ProtectedRoute user={user}>
               <ProfileDetails user={user}/>
-
             </ProtectedRoute>
           }
         />
@@ -241,6 +230,5 @@ const App = () => {
     </>
   )
 }
-
 
 export default App
