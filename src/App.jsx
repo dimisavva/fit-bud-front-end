@@ -44,6 +44,12 @@ const App = () => {
     navigate('/meals')
   }
 
+  const handleUpdateMeal = async (mealData) => {
+    const updatedMeal = await mealService.update(mealData)
+    setMeals(meals.map((meal) => mealData._id === meal._id ? updatedMeal : meal))
+    navigate('/meals')
+  }
+
   useEffect(() => {
     const fetchAllMeals = async () => {
       const data = await mealService.index()
