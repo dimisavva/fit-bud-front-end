@@ -31,6 +31,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
+  const [blogs, setBlogs ] =useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -70,11 +71,13 @@ const App = () => {
     Navigate('/meals')
   }
 
+
   const handleDeleteMeal = async (id) => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
     Navigate('/meals')
   }
+
 
   return (
     <>
