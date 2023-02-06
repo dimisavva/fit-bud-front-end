@@ -12,6 +12,7 @@ import Profiles from './pages/Profiles/Profiles'
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
+import BlogDetails from './pages/BlogDetails/BlogDetails'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
@@ -113,10 +114,12 @@ const App = () => {
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
+
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
+
         <Route
           path="/profiles"
           element={
@@ -125,6 +128,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/blogs"
           element={
@@ -133,6 +137,16 @@ const App = () => {
             </ProtectedRoute>
           }
           />
+
+        <Route
+          path="/blogs/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <BlogDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
+
         <Route 
           path="/meals"
           element={
@@ -141,6 +155,7 @@ const App = () => {
             </ProtectedRoute>
           }
           />
+
         <Route 
           path='/exercises'
           element={
@@ -149,6 +164,7 @@ const App = () => {
           </ProtectedRoute>
           }
         />
+        
         <Route 
           path="/meals/:id/edit"
           element={
