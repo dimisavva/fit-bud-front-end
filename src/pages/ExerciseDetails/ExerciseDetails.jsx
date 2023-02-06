@@ -17,10 +17,10 @@ const ExerciseDetails = (props) => {
     }
     fetchExercise()
   }, [id])
+  if (!exercise) return <Loading />
 
   console.log('Exercise State:', exercise)
 
-  if (!exercise) return <Loading />
 
   return (
     <main className={styles.container}>
