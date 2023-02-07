@@ -81,6 +81,7 @@ const App = () => {
   const handleDeleteExercise = async (id) => {
     const deletedExercise = await exerciseService.deleteExercise(id)
     setExercises(exercises.filter(e => e._id !== deletedExercise._id))
+    Navigate('/exercises')
   }
 
   const handleAddExercise = async (exerciseData) => {
@@ -236,7 +237,7 @@ const App = () => {
           }
         />
         <Route
-          path='/exercise/:id/edit'
+          path='/exercises/:id/edit'
           element={
             <ProtectedRoute user={user}>
               <EditExercise handleUpdateExercise={handleUpdateExercise} />
