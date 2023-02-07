@@ -85,11 +85,29 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const updateComment = async (mealId, commentId, commentData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${mealId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 export { 
   index,
   show,
   create,
   update,
   deleteMeal, 
-  createComment
+  createComment, 
+  updateComment,
 }
