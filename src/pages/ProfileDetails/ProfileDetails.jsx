@@ -6,7 +6,7 @@ import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
 import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
-import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
+
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
