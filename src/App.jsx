@@ -229,14 +229,6 @@ const App = () => {
           }
         />
         <Route
-          path='/exercises/:id'
-          element={
-          <ProtectedRoute user={user}>
-            <ExerciseDetails user={user} />
-          </ProtectedRoute>
-          }
-        />
-        <Route
           path='/exercises/:id/edit'
           element={
             <ProtectedRoute user={user}>
