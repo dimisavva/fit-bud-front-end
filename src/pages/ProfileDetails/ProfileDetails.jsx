@@ -6,12 +6,18 @@ import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
 import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
+import NewComment from "../../components/NewComment/NewComment"
 
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
   
+  const handleAddComment = async (commentData) => {
+    const newComment = await profileService.createComment(id, commentData)
+    setProfile({ ...profile, comments: [...profile.comments, newComment] })
+  }
+
   useEffect(() => {
     const fetchProfile = async () => {
       const data = await profileService.show(id)
@@ -19,8 +25,9 @@ const ProfileDetails = (props) => {
     }
     fetchProfile()
   }, [id])
+
   if (!profile) return <Loading />
-  console.log(profile)
+
 
   return ( 
     <main className={styles.container}>
@@ -40,6 +47,8 @@ const ProfileDetails = (props) => {
         {profile.exercises.map((exercise) => (
           <ExerciseCard key={exercise._id} exercise={exercise} />
         ))}
+        <h1>Comments:</h1>
+        <NewComment handleAddComment={handleAddComment}/>
     </section>
   </main>
   );
