@@ -29,7 +29,7 @@
 }
 
 .container button {
-  color: white;
+  color: rgb(3, 24, 219);
   font-weight: 600;
   margin: 21px 0px 0px 0px;
   background: var(--primary);
@@ -42,7 +42,7 @@
   font-weight: 500;
   margin-top: 14px;
   text-align: center;
-  color: rgb(200, 200, 200);
+  color: rgb(35, 235, 9);
 }
 
 input:focus, select:focus, textarea:focus {
