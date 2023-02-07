@@ -42,7 +42,7 @@ const create = async (exerciseData) => {
 
 const update = async (exerciseData) => {
   try {
-    const res = await fetch(`${BASE_URL}/$exerciseData._id`, {
+    const res = await fetch(`${BASE_URL}/${exerciseData._id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
