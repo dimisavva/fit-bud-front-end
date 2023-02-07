@@ -74,6 +74,20 @@ const updateComment = async (profileId, commentId, commentData) => {
   }
 }
 
+const deleteComment = async (profileId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles, 
   addPhoto,
@@ -81,4 +95,5 @@ export {
   show,
   createComment,
   updateComment,
+  deleteComment,
 }
