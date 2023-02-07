@@ -49,12 +49,12 @@ const NewBlog = (props) => {
           value={form.category}
           onChange={handleChange}
         >
-          <option value="News">News</option>
-          <option value="Games">Games</option>
-          <option value="Music">Music</option>
-          <option value="Movies">Movies</option>
-          <option value="Sports">Sports</option>
-          <option value="Television">Television</option>
+          <option value="Exercise">News</option>
+          <option value="Gym">Games</option>
+          <option value="Food">Music</option>
+          <option value="Suppliments">Movies</option>
+          <option value="Personal Journey">Sports</option>
+          <option value="Other">Television</option>
         </select>
         <button type="submit">SUBMIT</button>
       </form>
