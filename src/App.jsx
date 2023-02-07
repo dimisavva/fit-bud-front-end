@@ -14,6 +14,7 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails'
+import NewBlog from './pages/NewBlog/NewBlog'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
@@ -117,7 +118,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllBlogs = async () => {
       const data = await blogService.index()
-      setBlogs (data)
+      setBlogs(data)
     }
     if (user) fetchAllBlogs()
   }, [user])
@@ -125,6 +126,12 @@ const App = () => {
   const handleAddBlog = async (blogData) => {
     const newBlog = await blogService.create(blogData)
     setBlogs([newBlog, ...blogs])
+    Navigate('/blogs')
+  }
+
+  const handleUpdateBlog = async (blogData) => {
+    const updatedBlog = await blogService.update(blogData)
+    setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
     Navigate('/blogs')
   }
 
@@ -178,6 +185,12 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/blogs/new" element={
+          <ProtectedRoute user={user}>
+            <NewBlog handleAddBlog={handleAddBlog} />
+          </ProtectedRoute>
+        } />
 
         <Route 
           path="/meals"

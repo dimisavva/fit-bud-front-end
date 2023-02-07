@@ -3,12 +3,20 @@ import { useLocation, useParams, useNavigate } from "react-router-dom"
 import styles from './EditComment.module.css'
 
 // Services
+
 import * as profileService from '../../services/profileService'
+
+import * as mealService from '../../services/mealService'
+
 
 const EditComment = () => {
   const navigate = useNavigate()
   const { state } = useLocation()
+
   const { profileId, commentId } = useParams()
+
+  const { mealId, commentId } = useParams()
+
   const [form, setForm] = useState(state)
 
   const handleChange = ({ target }) => {
@@ -17,8 +25,13 @@ const EditComment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     await profileService.updateComment(profileId, commentId, form)
     navigate(`/profile/${profileId}`)
+
+    await mealService.updateComment(mealId, commentId, form)
+    navigate(`/meals/${mealId}`)
+
   }
 
   return (

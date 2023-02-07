@@ -42,8 +42,25 @@ const create = async (blogData) => {
   }
 }
 
+const update = async (blogData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${blogData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(blogData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
   create,
+  update,
 }

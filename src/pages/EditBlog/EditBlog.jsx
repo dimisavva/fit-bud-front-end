@@ -1,26 +1,25 @@
 import { useState } from "react"
-import styles from './NewBlog.module.css'
+import { useLocation } from "react-router-dom"
+import styles from './EditBlog.module.css'
 
-const NewBlog = (props) => {
-  const [form, setForm] = useState({
-    title: '',
-    text: '',
-    category: 'Exercise',
-  })
+const EditBlog = (props) => {
+  const { state } = useLocation()
+  const [form, setForm] = useState(state)
 
+  console.log(state)
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleAddBlog(form)
+    // Update this line shortly...
   }
 
-  
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
+        <h1>Edit Blog</h1>
         <label htmlFor="title-input">Title</label>
         <input
           required
@@ -32,7 +31,7 @@ const NewBlog = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="text-input">Text</label>
-				<textarea
+        <textarea
           required
           type="text"
           name="text"
@@ -49,12 +48,12 @@ const NewBlog = (props) => {
           value={form.category}
           onChange={handleChange}
         >
-          <option value="Exercise">Exercise</option>
-          <option value="Gym">Gym</option>
-          <option value="Food">Food</option>
-          <option value="Supplements">Supplements</option>
-          <option value="Personal Journey">Personal Journey</option>
-          <option value="Other">Other</option>
+          <option value="Exercise">News</option>
+          <option value="Gym">Games</option>
+          <option value="Food">Music</option>
+          <option value="Suppliments">Movies</option>
+          <option value="Personal Journey">Sports</option>
+          <option value="Other">Television</option>
         </select>
         <button type="submit">SUBMIT</button>
       </form>
@@ -62,4 +61,4 @@ const NewBlog = (props) => {
   )
 }
 
-export default NewBlog
+export default EditBlog

@@ -5,6 +5,7 @@ import * as mealService from "../../services/mealService"
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
 import NewComment from "../../components/NewComment/NewComment"
+import Comments from "../../components/Comments/Comments"
 
 const MealDetails = (props) => {
   const { id } = useParams()
@@ -45,8 +46,8 @@ const MealDetails = (props) => {
       </article>
       <section>
         <h1>Comments</h1>
-        {/* {props.meal.comments} */}
         <NewComment handleAddComment={handleAddComment} />
+        <Comments comments={meal.comments} user={props.profile} />
       </section>
     </main>
   )
