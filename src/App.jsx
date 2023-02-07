@@ -128,6 +128,12 @@ const App = () => {
     Navigate('/blogs')
   }
 
+  const handleUpdateBlog = async (blogData) => {
+    const updatedBlog = await blogService.update(blogData)
+    setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
+    navigate('/blogs')
+  }
+
   useEffect(() => {
     const fetchAllProfiles = async () => {
       const data = await profileService.index()
