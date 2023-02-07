@@ -13,7 +13,7 @@ const EditBlog = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Update this line shortly...
+    props.handleUpdateBlog(form)
   }
 
   return (
@@ -48,12 +48,12 @@ const EditBlog = (props) => {
           value={form.category}
           onChange={handleChange}
         >
-          <option value="Exercise">News</option>
-          <option value="Gym">Games</option>
-          <option value="Food">Music</option>
-          <option value="Suppliments">Movies</option>
-          <option value="Personal Journey">Sports</option>
-          <option value="Other">Television</option>
+          <option value="Exercise">Exercise</option>
+          <option value="Gym">Gym</option>
+          <option value="Food">Food</option>
+          <option value="Suppliments">Suppliments</option>
+          <option value="Personal Journey">Personal Journey</option>
+          <option value="Other">Other</option>
         </select>
         <button type="submit">SUBMIT</button>
       </form>

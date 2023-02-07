@@ -35,11 +35,10 @@ return (
         <h1>{blog.title}</h1>
         <span>
             <AuthorInfo content={blog} />
-
             {blog.author._id === props.user.profile &&
               <>
                 <Link to={`/blogs/${id}/edit`} state={blog}>Edit</Link>
-                <button>Delete</button>
+                <button onClick={() => props.handleDeleteBlog(id)}>Delete</button>
               </>
             }
 
