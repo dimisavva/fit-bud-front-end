@@ -22,9 +22,6 @@ const BlogDetails = (props) => {
     fetchBlog()
   }, [id])
 
-  // Verify state with a console.log or React Dev Tools:
-  console.log('Blog State:', blog)
-
 if (!blog) return <Loading />
 
 return (

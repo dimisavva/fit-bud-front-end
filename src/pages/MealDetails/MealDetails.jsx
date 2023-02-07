@@ -47,7 +47,7 @@ const MealDetails = (props) => {
       <section>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
-        <Comments comments={meal.comments} user={props.user} />
+        <Comments comments={meal.comments} user={props.profile} />
       </section>
     </main>
   )

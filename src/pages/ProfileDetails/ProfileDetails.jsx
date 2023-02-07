@@ -10,6 +10,7 @@ import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/Comments"
 
 
+
 const ProfileDetails = (props) => {
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
@@ -19,6 +20,10 @@ const ProfileDetails = (props) => {
     setProfile({ ...profile, comments: [...profile.comments, newComment] })
   }
 
+  const handleDeleteComment = async (profileId, commentId) => {
+    await profileService.deleteComment(profileId, commentId)
+    setProfile({ ...profile, comments: profile.comments.filter((c) => c._id !== commentId) })
+  }
   useEffect(() => {
     const fetchProfile = async () => {
       const data = await profileService.show(id)
@@ -50,7 +55,12 @@ const ProfileDetails = (props) => {
         ))}
       <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
-        <Comments comments={profile.comments} user={props.profile}/>
+        <Comments 
+          comments={profile.comments} 
+          user={props.user} 
+          profileId={id} 
+          handleDeleteComment={handleDeleteComment}
+        />
     </section>
   </main>
   );

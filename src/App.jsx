@@ -23,6 +23,7 @@ import NewMeal from './pages/NewMeal/NewMeal'
 import EditMeal from './pages/EditMeal/EditMeal'
 import NewExercise from './pages/NewExercise/NewExercise'
 import EditExercise from './pages/EditExercise/EditExercise'
+import EditComment from './pages/EditComment/EditComment'
 
 // services
 import * as authService from './services/authService'
@@ -118,7 +119,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllBlogs = async () => {
       const data = await blogService.index()
-      setBlogs (data)
+      setBlogs(data)
     }
     if (user) fetchAllBlogs()
   }, [user])
@@ -132,7 +133,7 @@ const App = () => {
   const handleUpdateBlog = async (blogData) => {
     const updatedBlog = await blogService.update(blogData)
     setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
-    navigate('/blogs')
+    Navigate('/blogs')
   }
 
   useEffect(() => {
@@ -273,6 +274,14 @@ const App = () => {
               <ExerciseDetails user={user} handleDeleteExercise={handleDeleteExercise} />
             </ProtectedRoute>
           }
+          />
+        <Route 
+          path='/profiles/:profileId/comments/:commentId'
+          element={
+            <ProtectedRoute user={user}>
+              <EditComment />
+            </ProtectedRoute>
+          }  
           />
         </Routes>
     </>
