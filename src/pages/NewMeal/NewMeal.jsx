@@ -39,6 +39,7 @@ const NewMeal = (props) => {
           placeholder="Description"
           onChange={handleChange}
         />
+        
         <button type="submit">SUBMIT</button>
       </form>
     </main>
