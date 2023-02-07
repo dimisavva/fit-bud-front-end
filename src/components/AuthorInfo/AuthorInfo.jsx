@@ -3,7 +3,6 @@ import ProfileIcon from '../../assets/icons/profile.png'
 import DateCard from '../DateCard/DateCard'
 
 const AuthorInfo = ({ content }) => {
-  console.log(content)
   const photo = content.author?.photo ? content.author.photo : ProfileIcon
   return (
     <div className={styles.container}>
