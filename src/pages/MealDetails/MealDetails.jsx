@@ -4,10 +4,16 @@ import styles from './MealDetails.module.css'
 import * as mealService from "../../services/mealService"
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
+import NewComment from "../../components/NewComment/NewComment"
 
 const MealDetails = (props) => {
   const { id } = useParams()
   const [meal, setMeal] = useState(null)
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await mealService.createComment(id, commentData)
+    setMeal({ ...meal, comments: [...meal.comments, newComment] })
+  }
 
   useEffect(() => {
     const fetchMeal = async () => {
@@ -39,6 +45,8 @@ const MealDetails = (props) => {
       </article>
       <section>
         <h1>Comments</h1>
+        {/* {props.meal.comments} */}
+        <NewComment handleAddComment={handleAddComment} />
       </section>
     </main>
   )
