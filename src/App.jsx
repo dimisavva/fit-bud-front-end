@@ -15,6 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails'
 import NewBlog from './pages/NewBlog/NewBlog'
+import EditBlog from './pages/EditBlog/EditBlog'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
@@ -134,6 +135,14 @@ const App = () => {
     const updatedBlog = await blogService.update(blogData)
     setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
     Navigate('/blogs')
+
+  }
+
+  const handleDeleteBlog = async (id) => {
+    const deletedBlog = await blogService.deleteBlog(id)
+    setBlogs(blogs.filter(b => b._id !== deletedBlog._id))
+    Navigate('/blogs')
+
   }
 
   useEffect(() => {
@@ -175,23 +184,32 @@ const App = () => {
             <ProtectedRoute user={user}>
               <BlogList blogs={blogs}/>
             </ProtectedRoute>
-          }
+            }
           />
 
-        <Route
-          path="/blogs/:id"
-          element={
-            <ProtectedRoute user={user}>
-              <BlogDetails user={user} />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route path="/blogs/new" element={
+        <Route 
+          path="/blogs/new" element={
           <ProtectedRoute user={user}>
             <NewBlog handleAddBlog={handleAddBlog} />
           </ProtectedRoute>
-        } />
+          } 
+        />
+
+        <Route 
+          path="/blogs/:id/edit" element={
+          <ProtectedRoute user={user}>
+            <EditBlog handleUpdateBlog={handleUpdateBlog} />
+          </ProtectedRoute>
+          } 
+        />
+
+        <Route 
+          path="/blogs/:id" element={
+          <ProtectedRoute user={user}>
+            <BlogDetails user={user} handleDeleteBlog={handleDeleteBlog} />
+          </ProtectedRoute>
+          } 
+        />
 
         <Route 
           path="/meals"

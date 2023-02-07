@@ -7,7 +7,7 @@ const ProfileCommentCard = ({ comment, profileId, user, handleDeleteComment }) =
       <header>
         <span>
           <AuthorInfo content={comment} />
-          {comment.author._id === user.profileId &&
+          {comment.author._id === user.profile &&
             <>
               <Link to={`/profiles/${profileId}/comments/${comment._id}`} state={comment}>
                 EDIT
