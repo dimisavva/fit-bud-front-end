@@ -30,7 +30,7 @@ const ExerciseDetails = (props) => {
             {exercise.author._id === props.user.profile && 
               <>
                 <Link to={`/exercises/${id}/edit`} state={exercise}>Edit</Link>
-                <button onClick={() =>props.handleDeleteExcercise(id)}>Delete</button>
+                <button onClick={() =>props.handleDeleteExercise(id)}>Delete</button>
               </>
             }
           </span>
