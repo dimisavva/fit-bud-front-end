@@ -58,10 +58,27 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const updateComment = async (profileId, commentId, commentData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles, 
   addPhoto,
   index,
   show,
-  createComment 
+  createComment,
+  updateComment,
 }

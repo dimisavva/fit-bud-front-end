@@ -50,7 +50,7 @@ const ProfileDetails = (props) => {
         ))}
       <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
-        <Comments comments={profile.comments} user={props.profile}/>
+        <Comments comments={profile.comments} user={props.profile} profileId={id} />
     </section>
   </main>
   );

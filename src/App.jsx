@@ -23,6 +23,7 @@ import NewMeal from './pages/NewMeal/NewMeal'
 import EditMeal from './pages/EditMeal/EditMeal'
 import NewExercise from './pages/NewExercise/NewExercise'
 import EditExercise from './pages/EditExercise/EditExercise'
+import EditComment from './pages/EditComment/EditComment'
 
 // services
 import * as authService from './services/authService'
@@ -272,6 +273,14 @@ const App = () => {
               <ExerciseDetails user={user} handleDeleteExercise={handleDeleteExercise} />
             </ProtectedRoute>
           }
+          />
+        <Route 
+          path='/profile/:profileId/comments/:commentId'
+          element={
+            <ProtectedRoute user={user}>
+              <EditComment />
+            </ProtectedRoute>
+          }  
           />
         </Routes>
     </>
