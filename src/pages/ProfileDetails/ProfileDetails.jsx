@@ -7,7 +7,7 @@ import * as profileService from '../../services/profileService'
 import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
-import Comments from "../../components/Comments/Comments"
+import Comments from "../../components/Comments/ProfileComments"
 
 
 
@@ -28,6 +28,7 @@ const ProfileDetails = (props) => {
     const fetchProfile = async () => {
       const data = await profileService.show(id)
       setProfile(data)
+      console.log(data)
     }
     fetchProfile()
   }, [id])
@@ -56,9 +57,9 @@ const ProfileDetails = (props) => {
       <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
         <Comments 
-          comments={profile.comments} 
-          user={props.user} 
           profileId={id} 
+          user={props.user} 
+          comments={profile.comments} 
           handleDeleteComment={handleDeleteComment}
         />
     </section>

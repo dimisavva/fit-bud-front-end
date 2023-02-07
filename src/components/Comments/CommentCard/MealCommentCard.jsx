@@ -1,6 +1,6 @@
 import AuthorInfo from "../../AuthorInfo/AuthorInfo"
 
-const CommentCard = ({ comment }) => {
+const MealCommentCard = ({ comment }) => {
   return (
     <article>
       <header>
@@ -11,4 +11,4 @@ const CommentCard = ({ comment }) => {
   )
 }
 
-export default CommentCard
+export default MealCommentCard
