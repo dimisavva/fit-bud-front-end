@@ -14,6 +14,7 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails'
+import NewBlog from './pages/NewBlog/NewBlog'
 import MealList from './pages/MealList/MealList'
 import ExerciseList from './pages/ExerciseList/ExerciseList'
 import MealDetails from './pages/MealDetails/MealDetails'
@@ -177,6 +178,12 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/blogs/new" element={
+          <ProtectedRoute user={user}>
+            <NewBlog handleAddBlog={handleAddBlog} />
+          </ProtectedRoute>
+        } />
 
         <Route 
           path="/meals"
