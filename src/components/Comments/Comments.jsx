@@ -11,6 +11,7 @@ const Comments = (props) => {
           comment={comment}
           user={props.user}
           profileId={props.profileId}
+          handleDeleteComment={props.handleDeleteComment}
         />
       ))}
     </>
