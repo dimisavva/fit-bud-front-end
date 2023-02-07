@@ -117,7 +117,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllBlogs = async () => {
       const data = await blogService.index()
-      setBlogs (data)
+      setBlogs(data)
     }
     if (user) fetchAllBlogs()
   }, [user])
@@ -125,6 +125,12 @@ const App = () => {
   const handleAddBlog = async (blogData) => {
     const newBlog = await blogService.create(blogData)
     setBlogs([newBlog, ...blogs])
+    Navigate('/blogs')
+  }
+
+  const handleUpdateBlog = async (blogData) => {
+    const updatedBlog = await blogService.update(blogData)
+    setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
     Navigate('/blogs')
   }
 
