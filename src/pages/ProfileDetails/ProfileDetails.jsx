@@ -7,6 +7,7 @@ import * as profileService from '../../services/profileService'
 import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
+import Comments from "../../components/Comments/Comments"
 
 
 const ProfileDetails = (props) => {
@@ -47,8 +48,9 @@ const ProfileDetails = (props) => {
         {profile.exercises.map((exercise) => (
           <ExerciseCard key={exercise._id} exercise={exercise} />
         ))}
-        <h1>Comments:</h1>
+      <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
+        <Comments comments={profile.comments} user={props.profile}/>
     </section>
   </main>
   );
