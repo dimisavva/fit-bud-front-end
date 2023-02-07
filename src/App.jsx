@@ -275,7 +275,7 @@ const App = () => {
           }
           />
         <Route 
-          path='/profile/:profileId/comments/:commentId'
+          path='/profiles/:profileId/comments/:commentId'
           element={
             <ProtectedRoute user={user}>
               <EditComment />

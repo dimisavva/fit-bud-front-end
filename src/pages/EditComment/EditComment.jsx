@@ -9,9 +9,7 @@ import * as profileService from '../../services/profileService'
 const EditComment = () => {
   const navigate = useNavigate()
   const { state } = useLocation()
-
   const { profileId, commentId } = useParams()
-
   const [form, setForm] = useState(state)
 
   const handleChange = ({ target }) => {
@@ -20,9 +18,8 @@ const EditComment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     await profileService.updateComment(profileId, commentId, form)
-    navigate(`/profile/${profileId}`)
+    navigate(`/profiles/${profileId}`)
 
   }
 

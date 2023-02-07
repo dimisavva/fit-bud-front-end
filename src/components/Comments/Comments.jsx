@@ -1,4 +1,4 @@
-import CommentCard from "./CommentCard/CommentCard"
+import ProfileCommentCard from "./CommentCard/ProfileCommentCard"
 
 const Comments = (props) => {
   if (!props.comments) return <h4>No Comments</h4>
@@ -6,7 +6,7 @@ const Comments = (props) => {
   return (
     <>
       {props.comments.map((comment) => (
-        <CommentCard
+        <ProfileCommentCard
           key={comment._id}
           comment={comment}
           user={props.user}

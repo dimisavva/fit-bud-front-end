@@ -10,6 +10,7 @@ import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/Comments"
 
 
+
 const ProfileDetails = (props) => {
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
@@ -50,7 +51,7 @@ const ProfileDetails = (props) => {
         ))}
       <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
-        <Comments comments={profile.comments} user={props.profile} profileId={id} />
+        <Comments comments={profile.comments} user={props.user} profileId={id} />
     </section>
   </main>
   );
