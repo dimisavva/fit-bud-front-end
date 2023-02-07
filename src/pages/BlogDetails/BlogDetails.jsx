@@ -51,6 +51,7 @@ return (
     <section>
       <h1>Comments</h1>
       <NewComment handleAddComment={handleAddComment} />
+      <Comments comments={blog.comments} user={props.user} />
     </section>
   </main>
 )
