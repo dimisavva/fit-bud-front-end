@@ -8,6 +8,7 @@ import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
+import BlogCard from "../../components/BlogCard/BlogCard"
 
 
 
@@ -50,10 +51,18 @@ const ProfileDetails = (props) => {
         {profile.meals.map((meal) => (
           <MealCard key={meal._id} meal={meal} />
         ))}
+        {/* <h1>Meal Plans</h1>
+        {profile.mealPlans.map((meal) => (
+          {}
+        ))} */}
       <h1>Exercises</h1>
         {profile.exercises.map((exercise) => (
           <ExerciseCard key={exercise._id} exercise={exercise} />
         ))}
+      <h1>Blogs</h1>
+          {profile.blogs.map((blog) => (
+            <BlogCard key={blog._id} blog={blog} />
+          ))}
       <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
         <Comments 
