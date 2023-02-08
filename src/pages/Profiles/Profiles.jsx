@@ -3,6 +3,8 @@ import * as profileService from '../../services/profileService'
 import { Link } from 'react-router-dom'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
+import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
+
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
 
@@ -20,16 +22,16 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-
               <ProfileCard key={profile._id} profile={profile}/>
-
-          )}
+              
+              )}
         </>
       :
-        <p>No profiles yet</p>
-      }
+      <p>No profiles yet</p>
+    }
     </>
   )
 }
+
 
 export default Profiles
