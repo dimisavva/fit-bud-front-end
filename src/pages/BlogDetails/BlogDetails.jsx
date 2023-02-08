@@ -52,7 +52,7 @@ return (
     <section>
       <h1>Comments</h1>
       <NewComment handleAddComment={handleAddComment} />
-      <BlogComments comments={blog.comments} user={props.user} />
+      <BlogComments comments={blog.comments} user={props.user} blogId={id} />
     </section>
   </main>
 )

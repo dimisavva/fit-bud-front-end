@@ -27,6 +27,7 @@ import EditExercise from './pages/EditExercise/EditExercise'
 import EditProfileComment from './pages/EditComment/EditProfileComment'
 import EditMealComment from './pages/EditComment/EditMealComment'
 import EditExerciseComment from './pages/EditComment/EditExerciseComment'
+import EditBlogComment from './pages/EditComment/EditBlogComment'
 
 // services
 import * as authService from './services/authService'
@@ -209,6 +210,13 @@ const App = () => {
           path="/blogs/:id" element={
           <ProtectedRoute user={user}>
             <BlogDetails user={user} handleDeleteBlog={handleDeleteBlog} />
+          </ProtectedRoute>
+          } 
+        />
+
+        <Route path="/blogs/:blogId/comments/:commentId" element={
+          <ProtectedRoute user={user}>
+            <EditBlogComment />
           </ProtectedRoute>
           } 
         />
