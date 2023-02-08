@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import AuthorInfo from "../../AuthorInfo/AuthorInfo"
 
-const BlogCommentCard = ({ comment, blogId, user }) => {
+const BlogCommentCard = ({ comment, blogId, user, handleDeleteComment }) => {
   return (
     <article>
       <header>
@@ -12,8 +12,10 @@ const BlogCommentCard = ({ comment, blogId, user }) => {
               <Link to={`/blogs/${blogId}/comments/${comment._id}`} state={comment}>
                 EDIT
               </Link>
-              <button>DELETE</button>
-            </>
+              <button onClick={()=> handleDeleteComment(blogId, comment._id)}>
+                DELETE
+              </button>            
+              </>
           }
         </span>      
       </header>

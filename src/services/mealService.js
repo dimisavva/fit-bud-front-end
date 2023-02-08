@@ -123,5 +123,5 @@ export {
   deleteMeal, 
   createComment, 
   updateComment,
-  deleteComment,
+  deleteComment
 }
