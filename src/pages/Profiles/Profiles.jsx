@@ -19,8 +19,8 @@ const Profiles = () => {
 
   return (
     <>
-    <main className={styles.container}>
       <h1>Hello. This is a list of all the profiles.</h1>
+    <main className={styles.container}>
       {profiles.length ? 
         <>
           {profiles.map(profile =>
