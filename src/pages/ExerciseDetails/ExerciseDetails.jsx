@@ -13,7 +13,7 @@ const ExerciseDetails = (props) => {
 
   const handleAddComment = async (commentData) => {
     const newComment = await exerciseService.createComment(id, commentData)
-    setExercise({...exercise, comments: [...exercise.comments, newComment] })
+    setExercise({ ...exercise, comments: [...exercise.comments, newComment] })
   }
 
   const handleDeleteComment = async (exerciseId, commentId) => {
@@ -54,7 +54,7 @@ const ExerciseDetails = (props) => {
         <NewComment handleAddComment={handleAddComment} />
         <ExerciseComments
         exerciseId={id} 
-        user={props.profile} 
+        user={props.user} 
         comments={exercise.comments}
         handleDeleteComment={handleDeleteComment} 
         />
