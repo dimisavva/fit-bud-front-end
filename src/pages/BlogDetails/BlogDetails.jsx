@@ -7,6 +7,7 @@ import styles from './BlogDetails.module.css'
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
 import NewComment from "../../components/NewComment/NewComment"
+import BlogComments from "../../components/Comments/BlogComment"
 
 // Services
 import * as blogService from '../../services/blogService'
@@ -51,7 +52,7 @@ return (
     <section>
       <h1>Comments</h1>
       <NewComment handleAddComment={handleAddComment} />
-      <Comments comments={blog.comments} user={props.user} />
+      <BlogComments comments={blog.comments} user={props.user} />
     </section>
   </main>
 )
