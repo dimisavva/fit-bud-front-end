@@ -10,6 +10,8 @@ const MealComments = (props) => {
           key={comment._id}
           comment={comment}
           user={props.user}
+          mealId={props.mealId}
+          handleDeleteComment={props.handleDeleteComment}
         />
       ))}
     </>

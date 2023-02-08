@@ -101,6 +101,19 @@ const updateComment = async (mealId, commentId, commentData) => {
   }
 }
 
+const deleteComment = async (mealId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${mealId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export { 
   index,
@@ -110,4 +123,5 @@ export {
   deleteMeal, 
   createComment, 
   updateComment,
+  deleteComment,
 }

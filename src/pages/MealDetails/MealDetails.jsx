@@ -16,9 +16,15 @@ const MealDetails = (props) => {
     setMeal({ ...meal, comments: [...meal.comments, newComment] })
   }
 
+  const handleDeleteComment = async (mealId, commentId) => {
+    await mealService.deleteComment(mealId, commentId)
+    setMeal({ ...meal, comments: meal.comments.filter((c) => c._id !== commentId) })
+  }
+
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await mealService.show(id)
+      console.log(data)
       setMeal(data)
     }
     fetchMeal()
@@ -47,7 +53,11 @@ const MealDetails = (props) => {
       <section>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
-        <MealComments comments={meal.comments} user={props.profile} />
+        <MealComments 
+        mealId={id} 
+        user={props.user} 
+        comments={meal.comments} 
+        handleDeleteComment={handleDeleteComment} />
       </section>
     </main>
   )

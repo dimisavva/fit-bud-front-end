@@ -25,6 +25,7 @@ import EditMeal from './pages/EditMeal/EditMeal'
 import NewExercise from './pages/NewExercise/NewExercise'
 import EditExercise from './pages/EditExercise/EditExercise'
 import EditComment from './pages/EditComment/EditComment'
+import EditMealComment from './pages/EditComment/EditMealComment'
 
 // services
 import * as authService from './services/authService'
@@ -292,7 +293,15 @@ const App = () => {
               <EditComment />
             </ProtectedRoute>
           }  
-          />
+        />
+        <Route 
+          path='/meals/:mealId/comments/:commentId'
+          element={
+            <ProtectedRoute user={user}>
+              <EditMealComment />
+            </ProtectedRoute>
+          }
+        />
         </Routes>
     </>
   )
