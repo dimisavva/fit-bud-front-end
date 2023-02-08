@@ -50,21 +50,21 @@ const MealDetails = (props) => {
               <>
                 <Link to={`/meals/${id}/edit`} state={meal}>Edit</Link>
                 <button onClick={() =>props.handleDeleteMeal(id)}>Delete</button>
-                <button onClick={() => handleAddMealPlan(id)}>Add Meal Plan</button>
               </>
             }
+            <button onClick={() => handleAddMealPlan(id)}>Add Meal Plan</button>
           </span>
         </header>
         <p>{meal.description}</p>
       </article>
       <section>
         <h1>Comments</h1>
-        <NewComment handleAddComment={handleAddComment} />
-        <MealComments 
-        mealId={id} 
-        user={props.user} 
-        comments={meal.comments} 
-        handleDeleteComment={handleDeleteComment} />
+          <NewComment handleAddComment={handleAddComment} />
+          <MealComments 
+          meal={meal} 
+          user={props.user} 
+          comments={meal.comments} 
+          handleDeleteComment={handleDeleteComment} />
       </section>
     </main>
   )
