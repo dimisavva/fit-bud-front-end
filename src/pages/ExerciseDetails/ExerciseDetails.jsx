@@ -16,6 +16,11 @@ const ExerciseDetails = (props) => {
     setExercise({...exercise, comments: [...exercise.comments, newComment] })
   }
 
+  const handleDeleteComment = async (exerciseId, commentId) => {
+    await exerciseService.deleteComment(exerciseId, commentId)
+    setExercise({...exercise, comments: exercise.comments.filter((c) => c._id !== commentId)})
+  }
+
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await exerciseService.show(id)
@@ -47,7 +52,12 @@ const ExerciseDetails = (props) => {
       <section>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
-        <ExerciseComments comments={exercise.comments} user={props.profile} />
+        <ExerciseComments
+        exerciseId={id} 
+        user={props.profile} 
+        comments={exercise.comments}
+        handleDeleteComment={handleDeleteComment} 
+        />
       </section>
     </main>
   )

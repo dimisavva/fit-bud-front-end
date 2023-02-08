@@ -86,7 +86,35 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const updateComment = async (exerciseId, commentId, commentData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${exerciseId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
+const deleteComment = async (exerciseId, commentId) => {
+  try {
+    const res = await fetch(`${exerciseId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   index,
@@ -94,5 +122,7 @@ export {
   create,
   update,
   deleteExercise,
-  createComment
+  createComment,
+  updateComment,
+  deleteComment,
 }
