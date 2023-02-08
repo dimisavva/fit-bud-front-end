@@ -10,6 +10,8 @@ const ExerciseComments = (props) => {
           key={comment._id}
           comment={comment}
           user={props.user}
+          exerciseId={props.exerciseId}
+          handleDeleteComment={props.handleDeleteComment}
         />
       ))}
     </>
