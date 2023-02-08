@@ -18,7 +18,7 @@ const ExerciseDetails = (props) => {
 
   const handleDeleteComment = async (exerciseId, commentId) => {
     await exerciseService.deleteComment(exerciseId, commentId)
-    setExercise({...exercise, comments: exercise.comments.filter((c) => c._id !== commentId)})
+    setExercise({ ...exercise, comments: exercise.comments.filter((c) => c._id !== commentId) })
   }
 
   useEffect(() => {
