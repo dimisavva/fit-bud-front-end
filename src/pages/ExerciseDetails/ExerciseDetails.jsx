@@ -5,6 +5,7 @@ import * as exerciseService from "../../services/exerciseService"
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
 import NewComment from "../../components/NewComment/NewComment"
+import ExerciseComments from "../../components/Comments/ExerciseComments"
 
 const ExerciseDetails = (props) => {
   const { id } = useParams()
