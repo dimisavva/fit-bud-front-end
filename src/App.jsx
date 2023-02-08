@@ -303,7 +303,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path='/exercises/:exerciseId/:commentsId'
+        <Route path='/exercises/:exerciseId/:commentId'
         element={
           <ProtectedRoute user={user}>
             <EditExerciseComment />
