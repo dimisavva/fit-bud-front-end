@@ -1,5 +1,5 @@
 .container {
-  padding: 100px;
+  /* padding: px; */
   height: 100%;
   display: flex;
   overflow: scroll;
@@ -10,15 +10,23 @@
   justify-content: space-around;
 }
 
+main {
+}
+
 .container article, .container > section {
-  width: 100%;
-  padding: 21px;
+  width: 50%;
+  height: 100px;
+  padding: 60px;
+
   display: flex;
   max-width: 700px;
   /* flex-direction: column; */
   flex-wrap: wrap;
 }
 
+h1{
+  padding-top: 50px;
+}
 .container p {
   text-indent: 21px;
   text-align-last: left;
