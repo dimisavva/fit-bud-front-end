@@ -2,7 +2,7 @@ import MealCommentCard from "./CommentCard/MealCommentCard"
 
 const MealComments = (props) => {
   if (!props.comments) return <h4>No Comments</h4>
-
+  
   return (
     <>
       {props.comments.map((comment) => (
@@ -10,8 +10,9 @@ const MealComments = (props) => {
           key={comment._id}
           comment={comment}
           user={props.user}
-          mealId={props.mealId}
+          meal={props.meal}
           handleDeleteComment={props.handleDeleteComment}
+
         />
       ))}
     </>
