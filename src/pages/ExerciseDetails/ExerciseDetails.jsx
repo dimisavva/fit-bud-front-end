@@ -4,10 +4,17 @@ import styles from './ExerciseDetails.module.css'
 import * as exerciseService from "../../services/exerciseService"
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
+import NewComment from "../../components/NewComment/NewComment"
+import ExerciseComments from "../../components/Comments/ExerciseComments"
 
 const ExerciseDetails = (props) => {
   const { id } = useParams()
   const [exercise, setExercise] = useState(null)
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await exerciseService.createComment(id, commentData)
+    setExercise({...exercise, comments: [...exercise.comments, newComment] })
+  }
 
   useEffect(() => {
     const fetchMeal = async () => {
@@ -39,6 +46,8 @@ const ExerciseDetails = (props) => {
       </article>
       <section>
         <h1>Comments</h1>
+        <NewComment handleAddComment={handleAddComment} />
+        <ExerciseComments comments={exercise.comments} user={props.profile} />
       </section>
     </main>
   )
