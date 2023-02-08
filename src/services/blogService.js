@@ -104,19 +104,19 @@ const updateComment = async (blogId, commentId, commentData) => {
   }
 }
 
-// const deleteComment = async (blogId, commentId) => {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${blogId}/comments/${commentId}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Authorization': `Bearer ${tokenService.getToken()}`
-//       }
-//     })
-//     return res.json()
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+const deleteComment = async (blogId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${blogId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   index,
@@ -126,4 +126,5 @@ export {
   deleteBlog,
   createComment,
   updateComment,
+	deleteComment
 }

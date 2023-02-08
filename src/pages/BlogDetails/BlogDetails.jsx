@@ -11,6 +11,7 @@ import BlogComments from "../../components/Comments/BlogComment"
 
 // Services
 import * as blogService from '../../services/blogService'
+import MealCard from "../../components/MealCard/MealCard"
 
 const BlogDetails = (props) => {
   const { id } = useParams()
@@ -27,6 +28,11 @@ const BlogDetails = (props) => {
   const handleAddComment = async (commentData) => {
     const newComment = await blogService.createComment(id, commentData)
     setBlog({ ...blog, comments: [...blog.comments, newComment] })
+  }
+
+  const handleDeleteComment = async (blogId, commentId) => {
+  await blogService.deleteComment(blogId, commentId)
+  setBlog({...blog, comments: blog.comments.filter((c) => c.id !==commentId) }) 
   }
 
 if (!blog) return <Loading />
@@ -52,7 +58,12 @@ return (
     <section>
       <h1>Comments</h1>
       <NewComment handleAddComment={handleAddComment} />
-      <BlogComments comments={blog.comments} user={props.user} blogId={id} />
+      <BlogComments 
+      comments={blog.comments} 
+      user={props.user} 
+      blogId={id} 
+      handleDeleteComment={handleDeleteComment}
+      />
     </section>
   </main>
 )
