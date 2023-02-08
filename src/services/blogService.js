@@ -88,6 +88,36 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const updateComment = async (blogId, commentId, commentData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${blogId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// const deleteComment = async (blogId, commentId) => {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${blogId}/comments/${commentId}`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Authorization': `Bearer ${tokenService.getToken()}`
+//       }
+//     })
+//     return res.json()
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
 export {
   index,
   show,
@@ -95,4 +125,5 @@ export {
   update,
   deleteBlog,
   createComment,
+  updateComment,
 }
