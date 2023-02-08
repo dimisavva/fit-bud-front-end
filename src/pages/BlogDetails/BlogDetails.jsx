@@ -32,7 +32,7 @@ const BlogDetails = (props) => {
 
   const handleDeleteComment = async (blogId, commentId) => {
   await blogService.deleteComment(blogId, commentId)
-  setBlog({...blog, comments: blog.comments.filter((c) => c.id !==commentId) }) 
+  setBlog({...blog, comments: blog.comments.filter((c) => c._id !==commentId) }) 
   }
 
 if (!blog) return <Loading />
