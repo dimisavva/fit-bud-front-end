@@ -1,3 +1,4 @@
+import { json } from 'react-router-dom'
 import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/profiles`
@@ -88,6 +89,22 @@ const deleteComment = async (profileId, commentId) => {
   }
 }
 
+const addToMealPlan = async (id, mealData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/mealPlans`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mealData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles, 
   addPhoto,
@@ -96,4 +113,5 @@ export {
   createComment,
   updateComment,
   deleteComment,
+  addToMealPlan,
 }

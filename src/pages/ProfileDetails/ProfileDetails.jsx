@@ -9,6 +9,7 @@ import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
+import MealPlanCard from "../../components/MealPlanCard/MealPlanCard"
 
 
 
@@ -51,10 +52,10 @@ const ProfileDetails = (props) => {
         {profile.meals.map((meal) => (
           <MealCard key={meal._id} meal={meal} />
         ))}
-        {/* <h1>Meal Plans</h1>
-        {profile.mealPlans.map((meal) => (
-          {}
-        ))} */}
+        <h1>Meal Plans</h1>
+        {profile.mealPlans.map((mealPlan) => (
+          <MealPlanCard key={mealPlan._id} mealPlan={mealPlan} />
+        ))}
       <h1>Exercises</h1>
         {profile.exercises.map((exercise) => (
           <ExerciseCard key={exercise._id} exercise={exercise} />
