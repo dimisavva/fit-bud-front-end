@@ -24,7 +24,7 @@ import NewMeal from './pages/NewMeal/NewMeal'
 import EditMeal from './pages/EditMeal/EditMeal'
 import NewExercise from './pages/NewExercise/NewExercise'
 import EditExercise from './pages/EditExercise/EditExercise'
-import EditComment from './pages/EditComment/EditComment'
+import EditProfileComment from './pages/EditComment/EditProfileComment'
 import EditMealComment from './pages/EditComment/EditMealComment'
 
 // services
@@ -290,7 +290,7 @@ const App = () => {
           path='/profiles/:profileId/comments/:commentId'
           element={
             <ProtectedRoute user={user}>
-              <EditComment />
+              <EditProfileComment />
             </ProtectedRoute>
           }  
         />
