@@ -21,6 +21,10 @@ const MealDetails = (props) => {
     setMeal({ ...meal, comments: meal.comments.filter((c) => c._id !== commentId) })
   }
 
+  // const handleAddMealPlan = async (mealId, profileId) => {
+  //   await
+  // }
+
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await mealService.show(id)
@@ -39,11 +43,11 @@ const MealDetails = (props) => {
           <h1>{meal.name}</h1>
           <span>
             <AuthorInfo content={meal} />
-
             {meal.author._id === props.user.profile && 
               <>
                 <Link to={`/meals/${id}/edit`} state={meal}>Edit</Link>
                 <button onClick={() =>props.handleDeleteMeal(id)}>Delete</button>
+                <button onClick={() =>props.handleAddMealPlan(id)}>Add Meal Plan</button>
               </>
             }
           </span>
