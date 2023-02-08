@@ -6,6 +6,8 @@ import styles from './BlogDetails.module.css'
 // components
 import Loading from "../Loading/Loading"
 import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
+import NewComment from "../../components/NewComment/NewComment"
+import BlogComments from "../../components/Comments/BlogComment"
 
 // Services
 import * as blogService from '../../services/blogService'
@@ -21,6 +23,11 @@ const BlogDetails = (props) => {
     }
     fetchBlog()
   }, [id])
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await blogService.createComment(id, commentData)
+    setBlog({ ...blog, comments: [...blog.comments, newComment] })
+  }
 
 if (!blog) return <Loading />
 
@@ -38,13 +45,14 @@ return (
                 <button onClick={() => props.handleDeleteBlog(id)}>Delete</button>
               </>
             }
-
           </span>
       </header>
       <p>{blog.text}</p>
     </article>
     <section>
       <h1>Comments</h1>
+      <NewComment handleAddComment={handleAddComment} />
+      <BlogComments comments={blog.comments} user={props.user} />
     </section>
   </main>
 )
