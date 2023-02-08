@@ -5,7 +5,7 @@ const NewExercise = (props) => {
   const [form, setForm] = useState({
     title: '',
     text: '',
-    category: 'News',
+    category: 'Cardio',
   })
 
   const handleChange = ({ target }) => {
