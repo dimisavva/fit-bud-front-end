@@ -64,7 +64,7 @@ const ProfileDetails = (props) => {
         />
     </section>
   </main>
-  );
+  )
 }
 
 export default ProfileDetails;
