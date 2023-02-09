@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import styles from "./MealCard.module.css"
-
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
 const MealCard = ({ meal }) => {
@@ -10,7 +9,7 @@ const MealCard = ({ meal }) => {
         <header>
           <span>
             <>
-            <h1>{meal.name}</h1>
+              <h1>{meal.name}</h1>
             </>
           </span>
           <AuthorInfo content={meal} />
