@@ -23,11 +23,6 @@ const MealDetails = (props) => {
     setMeal({ ...meal, comments: meal.comments.filter((c) => c._id !== commentId) })
   }
 
-  const handleAddMealPlan = async (mealData, profileId) => {
-    const newMeal = await profileService.addToMealPlan(id, mealData)
-    setMealPlan({ ...mealPlan, mealPlans: [...mealPlan, newMeal]})
-  }
-
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await mealService.show(id)
@@ -42,20 +37,19 @@ const MealDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
-          <>
-          <h1>{meal.name}</h1>
-          <h1><img src={meal.image}/></h1>
-          </>
           <span>
             <AuthorInfo content={meal} />
             {meal.author._id === props.user.profile && 
               <>
-                <Link to={`/meals/${id}/edit`} state={meal}>Edit</Link>
+                <Link to={`/meals/${id}/edit`} state={meal} meal={meal}>Edit</Link>
                 <button onClick={() =>props.handleDeleteMeal(id)}>Delete</button>
               </>
             }
-            <button onClick={() => handleAddMealPlan(id)}>Add Meal Plan</button>
           </span>
+          <>
+          <h1>{meal.name}</h1>
+          <h1>{meal.category}</h1>
+          </>
         </header>
         <p>{meal.description}</p>
       </article>
