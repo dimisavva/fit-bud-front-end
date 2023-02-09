@@ -13,7 +13,13 @@
 .container header {
   margin-bottom: 14px;
 }
-
+img {
+  border-radius: 50%;
+  float: left;
+  width:  200px;
+  height: 200px;
+  object-fit: cover;
+}
 .container span {
   display: flex;
   align-items: center;
