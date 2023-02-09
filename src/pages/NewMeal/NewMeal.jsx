@@ -40,7 +40,14 @@ const NewMeal = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="image-input">ImageURL (Use Imgur links)</label>
-        <input type="text" name="image" value={form.image} placeholder="Image" /> 
+        <input 
+        required
+        type="text" 
+        name="image" 
+        value={form.image} 
+        placeholder="ImageURL"
+        onChange={handleChange} 
+        /> 
         <button type="submit">SUBMIT</button>
       </form>
     </main>

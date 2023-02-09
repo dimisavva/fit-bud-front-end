@@ -35,17 +35,16 @@ const MealDetails = (props) => {
     }
     fetchMeal()
   }, [id])
-
+  
   if (!meal) return <Loading />
 
   return (
     <main className={styles.container}>
       <article>
-        console.log(meal)
-          <h1>{meal.image}</h1>
         <header>
           <>
           <h1>{meal.name}</h1>
+          <h1><img src={meal.image}/></h1>
           </>
           <span>
             <AuthorInfo content={meal} />
