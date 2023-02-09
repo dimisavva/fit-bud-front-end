@@ -6,7 +6,7 @@ const MealList = (props) => {
     <main className={styles.container}>
       {props.meals.map((meal) => (
         <MealCard key={meal._id} meal={meal} />
-        ))}
+      ))}
     </main>
   )
 }

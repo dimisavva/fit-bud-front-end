@@ -5,6 +5,7 @@ const NewMeal = (props) => {
   const [form, setForm] = useState({
     name: '',
     description: '',
+    category: 'Snack',
   })
 
   const handleChange = ({ target }) => {

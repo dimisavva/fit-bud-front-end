@@ -38,7 +38,6 @@ const ExerciseDetails = (props) => {
           <h1>{exercise.title}</h1>
           <span>
             <AuthorInfo content={exercise} />
-
             {exercise.author._id === props.user.profile && 
               <>
                 <Link to={`/exercises/${id}/edit`} state={exercise}>Edit</Link>
@@ -53,10 +52,10 @@ const ExerciseDetails = (props) => {
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
         <ExerciseComments
-        exercise={exercise} 
-        user={props.user} 
-        comments={exercise.comments}
-        handleDeleteComment={handleDeleteComment} 
+          exercise={exercise} 
+          user={props.user} 
+          comments={exercise.comments}
+          handleDeleteComment={handleDeleteComment} 
         />
       </section>
     </main>
