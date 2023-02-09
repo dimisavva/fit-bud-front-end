@@ -6,7 +6,6 @@ const EditExercise = (props) => {
   const { state } = useLocation()
   const [form, setForm] = useState(state)
 
-  console.log(state)
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
@@ -14,7 +13,6 @@ const EditExercise = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleUpdateExercise(form)
-    // Update this line shortly...
   }
 
   return (

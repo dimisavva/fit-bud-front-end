@@ -12,7 +12,6 @@ const MealComments = (props) => {
           user={props.user}
           meal={props.meal}
           handleDeleteComment={props.handleDeleteComment}
-
         />
       ))}
     </>

@@ -6,7 +6,7 @@ const ExerciseList = (props) => {
   return (
     <main className={styles.container}>
       {props.exercises.map((exercise) => (
-          <ExerciseCard key={exercise._id} exercise={exercise}/>
+        <ExerciseCard key={exercise._id} exercise={exercise}/>
       ))}
     </main>
   )
