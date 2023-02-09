@@ -1,6 +1,6 @@
 ![fit-bud-app screenshot](./public/assets/images/fitbud-app-screenshot.png)
+# FitBud: Wellness, together.
 
-## [Use FitBud Here](https://fit-bud.netlify.app/)
 FitBud is the ultimate fitness companion that provides a comprehensive solution to all your fitness needs. 
 
 Have you ever felt unmotivated to workout and eat healthier? 
@@ -8,7 +8,19 @@ FitBud features a vibrant community where you can connect with like-minded indiv
 
 Whether you're a beginner or an experienced fitness enthusiast, FitBud's workout schedule feature will help you create and stick to a personalized workout plan that fits your schedule and goals. Join FitBud today and take control of your health and fitness journey!
 
-Planning materials and wireframes can be found [here](https://trello.com/b/Lv6op2WF/fit-bud)
+## Getting Started: [Use FitBud Here](https://fit-bud.netlify.app/) 
+## [Planning materials and wireframes](https://trello.com/b/Lv6op2WF/fit-bud), [back-end GitHub](https://github.com/demonorez/fit-bud-back-end).
+____
+## Contributors:
+[Mike Robles](https://github.com/demonorez)
+
+[Manny Maldonado](https://github.com/epsilonswisdom)
+
+[Jake Todoroki](https://github.com/jaketodoroki)
+
+[Dimitris Savva](https://github.com/dimisavva)
+
+
 ## Technologies Used
 * React
 * Express
@@ -19,13 +31,12 @@ Planning materials and wireframes can be found [here](https://trello.com/b/Lv6op
 * HTML
 * CSS
 * Git
+* Bootstrap
 
-## Credits
-* 
 
-## Ice Box
-- [ ] User-to-User Direct Messaging feature
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+
+## Next Steps (Ice Box)
+- [ ] User-to-User Direct Messaging feature.
+- [ ] Spotify, Apple Music, other music streaming service implimentation. 
+- [ ] Two type-member login: trainer platform. 
+- [ ] Friendship feature.
