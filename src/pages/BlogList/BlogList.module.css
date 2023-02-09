@@ -1,7 +1,6 @@
 .container {
   gap: 14px;
   width: 100%;
-  display: grid;
   padding: 100px;
   grid-template-columns: repeat(1, 1fr);
 }
