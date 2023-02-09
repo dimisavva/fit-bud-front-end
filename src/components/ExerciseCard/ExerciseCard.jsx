@@ -13,7 +13,6 @@ const ExerciseCard = ({ exercise }) => {
         <header>
           <span>
             <h1>{exercise.title}</h1>
-
           </span>
           <AuthorInfo content={exercise} />
         </header>
