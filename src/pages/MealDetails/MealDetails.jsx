@@ -31,19 +31,21 @@ const MealDetails = (props) => {
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await mealService.show(id)
-      console.log(data)
       setMeal(data)
     }
     fetchMeal()
   }, [id])
-
+  
   if (!meal) return <Loading />
 
   return (
     <main className={styles.container}>
       <article>
         <header>
+          <>
           <h1>{meal.name}</h1>
+          <h1><img src={meal.image}/></h1>
+          </>
           <span>
             <AuthorInfo content={meal} />
             {meal.author._id === props.user.profile && 
