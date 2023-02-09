@@ -7,7 +7,7 @@ const MealCommentCard = ({ comment, meal, user, handleDeleteComment }) => {
       <header>
         <span>
           <AuthorInfo content={comment} />
-          {meal.author.id === user.profile || comment.author._id === user.profile}  
+          {comment.author._id === user.profile &&
             <>
               <Link to={`/meals/${meal._id}/comments/${comment._id}`} state={comment}>
                 Edit
@@ -16,6 +16,7 @@ const MealCommentCard = ({ comment, meal, user, handleDeleteComment }) => {
                 DELETE
               </button>
             </>
+          } 
         </span>
       </header>
       <p>{comment.text}</p>

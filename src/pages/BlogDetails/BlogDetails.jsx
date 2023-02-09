@@ -11,7 +11,7 @@ import BlogComments from "../../components/Comments/BlogComment"
 
 // Services
 import * as blogService from '../../services/blogService'
-import MealCard from "../../components/MealCard/MealCard"
+
 
 const BlogDetails = (props) => {
   const { id } = useParams()
@@ -61,7 +61,7 @@ return (
       <BlogComments 
       comments={blog.comments} 
       user={props.user} 
-      blogId={id} 
+      blog={blog} 
       handleDeleteComment={handleDeleteComment}
       />
     </section>

@@ -53,7 +53,7 @@ const ExerciseDetails = (props) => {
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
         <ExerciseComments
-        exerciseId={id} 
+        exercise={exercise} 
         user={props.user} 
         comments={exercise.comments}
         handleDeleteComment={handleDeleteComment} 
