@@ -8,13 +8,16 @@ const NavBar = ({ user, handleLogout }) => {
     <ul>
       <li><NavLink to="/login">LOG IN</NavLink></li>
       <li><NavLink to="/signup">SIGN UP</NavLink></li>
+      {/* <li><NavLink to={'/'}>HOME</NavLink></li> */}
     </ul>
   )
 
   const protectedLinks = (
   
       <ul>
+      {/* <li><NavLink to={'/'}>HOME</NavLink></li> */}
       <li><NavLink to="/profiles">Profiles</NavLink></li>
+  
       <li><NavLink to="/meals">Meals</NavLink></li> 
       <li><NavLink to="/meals/new">New Meal</NavLink></li>
       <li><NavLink to="/blogs">Blogs</NavLink></li>
