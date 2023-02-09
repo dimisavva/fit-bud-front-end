@@ -24,8 +24,8 @@ Planning materials and wireframes can be found [here](https://trello.com/b/Lv6op
 * 
 
 ## Ice Box
-- [ ]  Loggin configuration between "providers" and "patients".
-- [ ] Logged-in providers are able to view their assigned patients' entries and suggest mood-boosting activities, medication, etc.
-- [ ] Add entry and activity sorting and search capability. 
-- [ ] Better UI/UX implementation. 
-- [ ] Open to references and suggestions.
+- [ ] User-to-User Direct Messaging feature
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 

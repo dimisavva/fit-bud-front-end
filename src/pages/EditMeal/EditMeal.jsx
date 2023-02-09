@@ -6,7 +6,6 @@ const EditMeal = (props) => {
   const { state } = useLocation()
   const [form, setForm] = useState(state)
 
-  console.log(state)
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
@@ -40,6 +39,20 @@ const EditMeal = (props) => {
           placeholder="Description"
           onChange={handleChange}
           />
+          <label htmlFor="category-input">Food Category</label>
+        <select
+          required
+          name="category"
+          id="category-input"
+          value={form.category}
+          onChange={handleChange}
+        >
+          <option value="Snack">Snack</option>
+          <option value="Protein">Protein</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Organic">Organic</option>
+          <option value="Cheat Meal">Cheat Meal</option>
+        </select>
         <button type="submit">SUBMIT</button>
       </form>
     </main>
