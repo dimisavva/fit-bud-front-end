@@ -31,7 +31,6 @@ const MealDetails = (props) => {
   useEffect(() => {
     const fetchMeal = async () => {
       const data = await mealService.show(id)
-      console.log(data)
       setMeal(data)
     }
     fetchMeal()
@@ -42,8 +41,12 @@ const MealDetails = (props) => {
   return (
     <main className={styles.container}>
       <article>
+        console.log(meal)
+          <h1>{meal.image}</h1>
         <header>
+          <>
           <h1>{meal.name}</h1>
+          </>
           <span>
             <AuthorInfo content={meal} />
             {meal.author._id === props.user.profile && 

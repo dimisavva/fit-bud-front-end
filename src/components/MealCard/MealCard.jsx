@@ -9,7 +9,9 @@ const MealCard = ({ meal }) => {
       <article className={styles.container}>
         <header>
           <span>
+            <>
             <h1>{meal.name}</h1>
+            </>
           </span>
           <AuthorInfo content={meal} />
         </header>
