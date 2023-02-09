@@ -10,7 +10,7 @@ const BlogComments = (props) => {
           key={comment._id}
           comment={comment}
           user={props.user}
-          blogId={props.blogId}
+          blog={props.blog}
           handleDeleteComment={props.handleDeleteComment}
         />
       ))}
