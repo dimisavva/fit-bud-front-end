@@ -8,12 +8,11 @@ const ExerciseCommentCard = ({ comment, exercise, user, handleDeleteComment }) =
         <span>
           <AuthorInfo content={comment} />
           {comment.author._id === user.profile &&
-              <>
-                <Link to={`/exercises/${exercise._id}/comments/${comment._id}`} 
-                state={comment}>
-                  Edit
-                </Link>
-                <button onClick={()=> handleDeleteComment(exercise._id, comment._id)}>
+            <>
+              <Link to={`/exercises/${exercise._id}/comments/${comment._id}`} state={comment}>
+                Edit
+              </Link>
+              <button onClick={()=> handleDeleteComment(exercise._id, comment._id)}>
                 DELETE
               </button>
             </>

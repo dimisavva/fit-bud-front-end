@@ -15,7 +15,6 @@ const NewExercise = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleAddExercise(form)
-		// Update this line shortly...
   }
 
   return (
