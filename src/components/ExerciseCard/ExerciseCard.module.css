@@ -10,6 +10,10 @@
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
 }
 
+a {
+  width: 300px;
+}
+
 .container header {
   margin-bottom: 14px;
 }

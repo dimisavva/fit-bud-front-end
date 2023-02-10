@@ -53,7 +53,7 @@ const NewMeal = (props) => {
           <option value="Protein">Protein</option>
           <option value="Fruit">Fruit</option>
           <option value="Organic">Organic</option>
-          <option value="Cheat Meal">Cheat Meal</option>
+          <option value="CheatMeal">Cheat Meal</option>
         </select>
         <button type="submit">SUBMIT</button>
       </form>
