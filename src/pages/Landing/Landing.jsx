@@ -15,7 +15,7 @@ const Landing = ({user, profile}) => {
           </header>
           <article>
             <p>
-            This app was built by four strangers that became closer in the course of a week simply with a common goal in mind. FitBud is a culmination of our culture as a team, to connect people in achieving wellness of any level, together.celebrities and bodybuilders. It's simple these people whom push these ideas have different circumstances not to mention the time and resources to work for the so called "Perfect Body". Our group DJ MVMT, know how hard it is to be in shape. So we made this app to cater to the individuals needs rather than having a one size fits all approach.
+            This app was built by four strangers that became closer in the course of a week simply with a common goal in mind. FitBud is a culmination of our culture as a team, to connect people in achieving wellness of any level, together.It's simple celebs and bodybuilders whom push these ideas have different circumstances not to mention the time and resources to work for the so called "Perfect Body". Our group DJ MVMT, know how hard it is to be in shape. So we made this app to cater to the individuals needs rather than having a one size fits all approach.
             </p>
           </article>
         </section>
