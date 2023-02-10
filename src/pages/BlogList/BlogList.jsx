@@ -4,6 +4,7 @@ import styles from './BlogList.module.css'
 const BlogList = (props) => {
   return (
     <main className={styles.container}>
+      <h1>Blogs:</h1>
       {props.blogs.map((blog) => (
         <BlogCard blog={blog} key={blog._id} />
       ))}
