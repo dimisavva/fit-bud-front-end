@@ -10,7 +10,7 @@ const Landing = ({user, profile}) => {
         </section>
         <section className={styles.about}>
           <header>
-            <h3>HOO WE ARE</h3>
+            <h3></h3>
             <h1>ABOUT US</h1>
           </header>
           <article>
@@ -21,7 +21,7 @@ const Landing = ({user, profile}) => {
         </section>
         <section className={styles.testimonial}>
           <header>
-            <h3>WHO GIVES A HOOT?</h3>
+            <h3></h3>
             <h1>TESTIMONIALS</h1>
           </header>
           <article>
