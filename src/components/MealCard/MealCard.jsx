@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import styles from "./MealCard.module.css"
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
+import Icon from "../Icon/Icon"
 
 const MealCard = ({ meal }) => {
   return (
@@ -9,6 +10,7 @@ const MealCard = ({ meal }) => {
         <header>
           <span>
             <h1>{meal.name}</h1>
+            <Icon category={meal.category} />
           </span>
           <AuthorInfo content={meal} />
         </header>
