@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom"
 import styles from './ExerciseCard.module.css'
-
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
-
+import Icon from "../Icon/Icon"
 
 
 
@@ -13,6 +12,7 @@ const ExerciseCard = ({ exercise }) => {
         <header>
           <span>
             <h1>{exercise.title}</h1>
+            <Icon category={exercise.category} />
           </span>
           <AuthorInfo content={exercise} />
         </header>
