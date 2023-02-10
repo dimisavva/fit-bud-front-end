@@ -5,7 +5,7 @@ const BlogList = (props) => {
   return (
     <main className={styles.container}>
       <h1>Blogs:</h1>
-      <NavLink to="/blogs/new">Create a New Blog!✨</NavLink>
+      <NavLink className={styles.Navlink} to="/blogs/new">Create a New Blog!✨</NavLink>
       {props.blogs.map((blog) => (
         <BlogCard blog={blog} key={blog._id} />
       ))}

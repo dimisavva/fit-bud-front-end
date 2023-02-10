@@ -5,7 +5,7 @@ const ExerciseList = (props) => {
   return (
     <main className={styles.container}>
       <h1>Exercise Lists:</h1>
-      <NavLink to="/exercises/new">Create a New Exercise!✨</NavLink>
+      <NavLink className={styles.Navlink} to="/exercises/new">Create a New Exercise!✨</NavLink>
       {props.exercises.map((exercise) => (
         <ExerciseCard key={exercise._id} exercise={exercise}/>
       ))}

@@ -5,7 +5,7 @@ const MealList = (props) => {
   return (
     <main className={styles.container}>
       <h1>Meal Lists:</h1>
-      <NavLink to="/meals/new">Create a New Meal!✨</NavLink>
+      <NavLink className={styles.Navlink} to="/meals/new">Create a New Meal!✨</NavLink>
       {props.meals.map((meal) => (
         <MealCard key={meal._id} meal={meal} />
       ))}
