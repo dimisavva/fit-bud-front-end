@@ -2,16 +2,12 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
-
 import * as profileService from '../../services/profileService'
 import MealCard from "../../components/MealCard/MealCard"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
-import MealPlanCard from "../../components/MealPlanCard/MealPlanCard"
-
-
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
@@ -44,27 +40,40 @@ const ProfileDetails = (props) => {
         <header>
           {profile.name}
           <img src={profile.photo}/>
-          
         </header>
       </article>
-    <section>
-      <h1>Meals</h1>
-        {profile.meals.map((meal) => (
-          <MealCard key={meal._id} meal={meal} />
-        ))}
-        <h1>Meal Plans</h1>
-        {profile.mealPlans.map((mealPlan) => (
-          <MealPlanCard key={mealPlan._id} mealPlan={mealPlan} />
-        ))}
-      <h1>Exercises</h1>
-        {profile.exercises.map((exercise) => (
-          <ExerciseCard key={exercise._id} exercise={exercise} />
-        ))}
-      <h1>Blogs</h1>
+      <section>
+        <h1>Meals:</h1>
+        {profile.meals.length ?
+        <>
+          {profile.meals.map((meal) => (
+            <MealCard key={meal._id} meal={meal} />
+          ))}
+        </>
+        :
+        <p>No meals yet.</p>
+        }
+        <h1>Exercises:</h1>
+        {profile.exercises.length ?
+        <>
+          {profile.exercises.map((exercise) => (
+            <ExerciseCard key={exercise._id} exercise={exercise} />
+          ))}
+        </>
+        :
+        <p>No Exercise yet</p>
+        }
+        <h1>Blogs</h1>
+        {profile.blogs.length ?
+        <>
           {profile.blogs.map((blog) => (
             <BlogCard key={blog._id} blog={blog} />
           ))}
-      <h1>Comments:</h1>
+        </>
+        :
+        <p>No Blogs yet</p>
+        }
+        <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
         <Comments 
           profileId={id} 
@@ -72,8 +81,8 @@ const ProfileDetails = (props) => {
           comments={profile.comments} 
           handleDeleteComment={handleDeleteComment}
         />
-    </section>
-  </main>
+      </section>
+    </main>
   )
 }
 

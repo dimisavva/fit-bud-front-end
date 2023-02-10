@@ -5,6 +5,7 @@ const NewMeal = (props) => {
   const [form, setForm] = useState({
     name: '',
     description: '',
+    category: 'Snack',
   })
 
   const handleChange = ({ target }) => {
@@ -39,15 +40,20 @@ const NewMeal = (props) => {
           placeholder="Description"
           onChange={handleChange}
         />
-        <label htmlFor="image-input">ImageURL (Use Imgur links)</label>
-        <input 
-        required
-        type="text" 
-        name="image" 
-        value={form.image} 
-        placeholder="ImageURL"
-        onChange={handleChange} 
-        /> 
+        <label htmlFor="category-input">Food Category</label>
+        <select
+          required
+          name="category"
+          id="category-input"
+          value={form.category}
+          onChange={handleChange}
+        >
+          <option value="Snack">Snack</option>
+          <option value="Protein">Protein</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Organic">Organic</option>
+          <option value="Cheat Meal">Cheat Meal</option>
+        </select>
         <button type="submit">SUBMIT</button>
       </form>
     </main>

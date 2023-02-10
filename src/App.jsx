@@ -33,18 +33,14 @@ import EditBlogComment from './pages/EditComment/EditBlogComment'
 import * as authService from './services/authService'
 import * as mealService from './services/mealService'
 import * as exerciseService from './services/exerciseService'
-
 import * as blogService from './services/blogService'
-
 import * as profileService from './services/profileService'
-
 
 // styles
 import './App.css'
 
-
 const App = () => {
-  const Navigate = useNavigate()
+  const navigate = useNavigate()
   const [user, setUser] = useState(authService.getUser())
   const [meals, setMeals] = useState([])
   const [exercises, setExercises ] = useState([])
@@ -54,7 +50,7 @@ const App = () => {
   const handleLogout = () => {
     authService.logout()
     setUser(null)
-    Navigate('/')
+    navigate('/')
   }
 
   const handleSignupOrLogin = () => {
@@ -64,43 +60,56 @@ const App = () => {
   const handleAddMeal = async (mealData) => {
     const newMeal = await mealService.create(mealData)
     setMeals([newMeal, ...meals])
-    Navigate('/meals')
+    navigate('/meals')
   }
 
-// update meal
   const handleUpdateMeal = async (mealData) => {
     const updatedMeal = await mealService.update(mealData)
     setMeals(meals.map((m) => mealData._id === m._id ? updatedMeal : m))
-    Navigate('/meals')
+    navigate(`/meals`)
   }
 
-//delete meal
   const handleDeleteMeal = async (id) => {
     const deletedMeal = await mealService.deleteMeal(id)
     setMeals(meals.filter(m => m._id !== deletedMeal._id))
-    Navigate('/meals')
-  }
-//
-  const handleDeleteExercise = async (id) => {
-    const deletedExercise = await exerciseService.deleteExercise(id)
-    setExercises(exercises.filter(e => e._id !== deletedExercise._id))
-    Navigate('/exercises')
+    navigate('/meals')
   }
 
   const handleAddExercise = async (exerciseData) => {
     const newExercise = await exerciseService.create(exerciseData)
     setExercises([newExercise, ...exercises])
-    Navigate('/exercises')
-  
+    navigate('/exercises')
   }
 
   const handleUpdateExercise = async (exerciseData) => {
     const updatedExercise = await exerciseService.update(exerciseData)
     setExercises(exercises.map((b) => exerciseData._id === b._id ? updatedExercise : b))
-    Navigate('/exercises')
-
+    navigate('/exercises')
   }
 
+  const handleDeleteExercise = async (id) => {
+    const deletedExercise = await exerciseService.deleteExercise(id)
+    setExercises(exercises.filter(e => e._id !== deletedExercise._id))
+    navigate('/exercises')
+  }
+
+  const handleAddBlog = async (blogData) => {
+    const newBlog = await blogService.create(blogData)
+    setBlogs([newBlog, ...blogs])
+    navigate('/blogs')
+  }
+
+  const handleUpdateBlog = async (blogData) => {
+    const updatedBlog = await blogService.update(blogData)
+    setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
+    navigate('/blogs')
+  }
+
+  const handleDeleteBlog = async (id) => {
+    const deletedBlog = await blogService.deleteBlog(id)
+    setBlogs(blogs.filter(b => b._id !== deletedBlog._id))
+    navigate('/blogs')
+  }
 
   useEffect(() => {
     const fetchAllMeals = async () => {
@@ -118,8 +127,6 @@ const App = () => {
     if (user) fetchAllExercises()
   }, [user])
 
-
-  //Blog
   useEffect(() => {
     const fetchAllBlogs = async () => {
       const data = await blogService.index()
@@ -127,26 +134,6 @@ const App = () => {
     }
     if (user) fetchAllBlogs()
   }, [user])
-
-  const handleAddBlog = async (blogData) => {
-    const newBlog = await blogService.create(blogData)
-    setBlogs([newBlog, ...blogs])
-    Navigate('/blogs')
-  }
-
-  const handleUpdateBlog = async (blogData) => {
-    const updatedBlog = await blogService.update(blogData)
-    setBlogs(blogs.map((b) => blogData._id === b._id ? updatedBlog : b))
-    Navigate('/blogs')
-
-  }
-
-  const handleDeleteBlog = async (id) => {
-    const deletedBlog = await blogService.deleteBlog(id)
-    setBlogs(blogs.filter(b => b._id !== deletedBlog._id))
-    Navigate('/blogs')
-
-  }
 
   useEffect(() => {
     const fetchAllProfiles = async () => {
@@ -156,12 +143,15 @@ const App = () => {
     if (user) fetchAllProfiles()
   }, [user])
 
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />} 
+        />
+
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -170,15 +160,6 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-
-        <Route
-          path="/profiles"
-          element={
-            <ProtectedRoute user={user}>
-              <Profiles profiles={profiles}/>
-            </ProtectedRoute>
-          }
         />
 
         <Route
@@ -199,17 +180,17 @@ const App = () => {
         />
 
         <Route 
-          path="/blogs/:id/edit" element={
+          path="/blogs/:id" element={
           <ProtectedRoute user={user}>
-            <EditBlog handleUpdateBlog={handleUpdateBlog} />
+            <BlogDetails user={user} handleDeleteBlog={handleDeleteBlog} />
           </ProtectedRoute>
           } 
         />
 
         <Route 
-          path="/blogs/:id" element={
+          path="/blogs/:id/edit" element={
           <ProtectedRoute user={user}>
-            <BlogDetails user={user} handleDeleteBlog={handleDeleteBlog} />
+            <EditBlog handleUpdateBlog={handleUpdateBlog} />
           </ProtectedRoute>
           } 
         />
@@ -228,7 +209,43 @@ const App = () => {
               <MealList meals={meals}/>
             </ProtectedRoute>
           }
-          />
+        />
+
+        <Route 
+          path="/meals/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewMeal handleAddMeal={handleAddMeal} />
+            </ProtectedRoute>
+          } 
+        /> 
+
+        <Route 
+          path='/meals/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <MealDetails user={user} handleDeleteMeal={handleDeleteMeal} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path="/meals/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditMeal handleUpdateMeal={handleUpdateMeal} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path='/meals/:mealId/comments/:commentId'
+          element={
+            <ProtectedRoute user={user}>
+              <EditMealComment />
+            </ProtectedRoute>
+          }
+        />
 
         <Route 
           path='/exercises'
@@ -238,55 +255,16 @@ const App = () => {
           </ProtectedRoute>
           }
         />
-        <Route
-          path='/exercises/:id/edit'
-          element={
-            <ProtectedRoute user={user}>
-              <EditExercise handleUpdateExercise={handleUpdateExercise} />
-            </ProtectedRoute>
-          }
-        />
-        
-        <Route 
-          path="/meals/:id/edit"
-          element={
-            <ProtectedRoute user={user}>
-              <EditMeal handleUpdateMeal={handleUpdateMeal} />
-            </ProtectedRoute>
-          }
-        />
-        <Route 
-          path='/meals/:id'
-          element={
-            <ProtectedRoute user={user}>
-              <MealDetails user={user} handleDeleteMeal={handleDeleteMeal} />
-            </ProtectedRoute>
-          }
-        />
-        <Route 
-          path="/meals/new"
-          element={
-            <ProtectedRoute user={user}>
-              <NewMeal handleAddMeal={handleAddMeal} />
-            </ProtectedRoute>
-          } 
-        /> 
+
         <Route 
           path='/exercises/new'
           element={
-            <ProtectedRoute user={user}>
-              <NewExercise handleAddExercise={handleAddExercise} />
-            </ProtectedRoute>
+          <ProtectedRoute user={user}>
+            <NewExercise handleAddExercise={handleAddExercise} />
+          </ProtectedRoute>
           }
         />
-        <Route 
-          path='/profiles/:id'
-          element={
-            <ProtectedRoute user={user}>
-              <ProfileDetails user={user}/>
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path='/exercises/:id'
           element={
@@ -295,6 +273,43 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path='/exercises/:id/edit'
+          element={
+            <ProtectedRoute user={user}>
+              <EditExercise handleUpdateExercise={handleUpdateExercise} />
+            </ProtectedRoute>
+          }
+        /> 
+
+        <Route 
+          path='/exercises/:exerciseId/comments/:commentId'
+          element={
+            <ProtectedRoute user={user}>
+              <EditExerciseComment />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profiles"
+          element={
+            <ProtectedRoute user={user}>
+              <Profiles profiles={profiles}/>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path='/profiles/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails user={user}/>
+            </ProtectedRoute>
+          }
+        />
+
         <Route 
           path='/profiles/:profileId/comments/:commentId'
           element={
@@ -303,22 +318,8 @@ const App = () => {
             </ProtectedRoute>
           }  
         />
-        <Route 
-          path='/meals/:mealId/comments/:commentId'
-          element={
-            <ProtectedRoute user={user}>
-              <EditMealComment />
-            </ProtectedRoute>
-          }
-        />
-        <Route path='/exercises/:exerciseId/comments/:commentId'
-        element={
-          <ProtectedRoute user={user}>
-            <EditExerciseComment />
-          </ProtectedRoute>
-        }
-        />
-        </Routes>
+
+      </Routes>
     </>
   )
 }
