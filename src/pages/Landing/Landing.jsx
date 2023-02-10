@@ -15,22 +15,22 @@ const Landing = ({user, profile}) => {
           </header>
           <article>
             <p>
-              There is an ongoing trend of diets and exercises that promises fast wieght loss. Those fad diets and exercises are made by 
+              There is an ongoing trend of diets and exercises that promises fast wieght loss. Those fad diets and exercises are made by celebrities and bodybuilders. It's simple these people whom push these ideas have different circumstances not to mention the time and resources to work for the so called "Perfect Body". Our group DJ MVMT, know how hard it is to be in shape. So we made this app to cater to the individuals needs rather than having a one size fits all approach.
             </p>
           </article>
         </section>
         <section className={styles.testimonial}>
           <header>
-            <h3>WHO GIVES A HOOT?</h3>
+            <h3>Fitbud</h3>
             <h1>TESTIMONIALS</h1>
           </header>
           <article>
             <header>
-              <h4>Ben Manley</h4>
-              <p>Software Engineer</p>
+              <h4>The Team</h4>
+              <p>DJ MVMT</p>
             </header>
             <p>
-              I found Hoot through a friend of mine, and I'm so glad I did. As a night owl, I have a hard time finding blogging apps that fit my lifestyle. The interface is so easy to use and makes it really convenient for me to write my blogs at night.
+            DJ MVMT was founded and formed in Feb 2023. The excellent minds of Dimi Savva, Michael Robles, Jake Todoroki, and Manny Maldonado. We worked very hard to make this app for our friends and the improvments of ourselves
             </p>
             <footer>
 
