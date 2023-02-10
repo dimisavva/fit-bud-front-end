@@ -14,21 +14,13 @@
   max-width: 700px;
   flex-direction: column;
   margin: 20px;
-
+  
 }
 
 .container p {
   text-indent: 21px;
   text-align-last: left;
 	word-break: break-all;
-}
-
-.container header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: white; 
-  height: 60px;
 }
 
 .container span {
@@ -61,8 +53,8 @@
 .container > section article {
   background-color: white;
   justify-content: center;
-  /* padding: 2px; */
-  height: 200px;
+  padding-left: 20px;
+  height: 100px;
   border-radius: 5px;
   min-height: 100px;
 }
