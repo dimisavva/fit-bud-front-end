@@ -40,3 +40,4 @@ ____
 - [ ] Spotify, Apple Music, other music streaming service implimentation. 
 - [ ] Two type-member login: trainer platform. 
 - [ ] Friendship feature.
+- [ ] Image/URL implementation in forms.
