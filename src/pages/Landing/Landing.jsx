@@ -1,6 +1,7 @@
 import styles from './Landing.module.css'
+import { useParams } from 'react-router-dom'
 
-const Landing = ({ user }) => {
+const Landing = ({user, profile}) => {
   return (
     <main className={styles.container}>
 

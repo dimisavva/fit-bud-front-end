@@ -84,4 +84,11 @@
   font-size: 21px;
 }
 
-
+@media only screen and (max-width: 800px) {
+  .container ul {
+    padding-left: 10px;
+  }
+  .container li {
+    font-size: 15px;
+  }
+}

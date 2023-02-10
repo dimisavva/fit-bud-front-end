@@ -2,4 +2,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: slateblue;
+  background-color: aqua;
 }
