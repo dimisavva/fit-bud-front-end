@@ -35,6 +35,7 @@ const ExerciseDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
+          <h1>{exercise.category}</h1>
           <h1>{exercise.title}</h1>
           <span>
             <AuthorInfo content={exercise} />
@@ -46,6 +47,7 @@ const ExerciseDetails = (props) => {
             }
           </span>
         </header>
+        
         <p>{exercise.text}</p>
       </article>
       <section>
