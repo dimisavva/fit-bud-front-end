@@ -24,7 +24,7 @@
 }
 
 .splash {
-  height: 91vh;
+  height: 61vh;
   justify-content: center;
   background-color: rgba(184, 205, 226, 0.788);
   background-image: url(https://i.imgur.com/zNNi4dB.png);
@@ -146,18 +146,9 @@
   font-size: 14px;
 }
 
-@media only screen and (max-width: 1200px) {
-  .testimonial {
-    height: 680px;
-  }
-} 
-
 @media only screen and (max-width: 1024px) {
   .about {
     height: 420px;
-  }
-  .testimonial {
-    height: 580px;
   }
 } 
 
@@ -165,17 +156,11 @@
   .about {
     height: 460px;
   }
-  .testimonial {
-    height: 600px;
-  }
 } 
 
 @media only screen and (max-width: 540px) {
   .about {
     height: 560px;
-  }
-  .testimonial {
-    height: 700px;
   }
 } 
 
