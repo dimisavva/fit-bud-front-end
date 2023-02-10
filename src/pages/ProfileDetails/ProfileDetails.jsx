@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
-import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
+import ExerciseCardProfile from "../../components/ExerciseCard/ExerciseCardProfile"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
@@ -57,7 +57,7 @@ const ProfileDetails = (props) => {
         {profile.exercises.length ?
         <>
           {profile.exercises.map((exercise) => (
-            <ExerciseCard key={exercise._id} exercise={exercise} />
+            <ExerciseCardProfile key={exercise._id} exercise={exercise} />
           ))}
         </>
         :
