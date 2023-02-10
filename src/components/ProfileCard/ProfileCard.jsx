@@ -7,7 +7,7 @@ const ProfileCard = ({ profile }) => {
   return(
     <Link to={`/profiles/${profile._id}`}>
       <article className={styles.container}>
-        <img src={photo} alt='poopshit' />
+        <img src={photo} alt='photo' />
         <header>
           <span>
       <h1>{profile.name}</h1>

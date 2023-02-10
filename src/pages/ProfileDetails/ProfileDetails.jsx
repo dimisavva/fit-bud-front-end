@@ -3,11 +3,14 @@ import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
-import MealCard from "../../components/MealCard/MealCard"
+import MealCard from "../../components/MealCard/MealCardNoAuthor"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
+import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
+import { Link } from "react-router-dom"
+import MealCardNoAuthor from "../../components/MealCard/MealCardNoAuthor"
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
@@ -47,7 +50,7 @@ const ProfileDetails = (props) => {
         {profile.meals.length ?
         <>
           {profile.meals.map((meal) => (
-            <MealCard key={meal._id} meal={meal} />
+            <MealCardNoAuthor key={meal._id} meal={meal} />
           ))}
         </>
         :
