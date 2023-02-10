@@ -30,7 +30,6 @@
   background-image: url(https://i.imgur.com/zNNi4dB.png);
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
 .about {
@@ -39,10 +38,6 @@
   box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.15);
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.15);
-}
-
-.testimonial {
-  height: 80vh;
 }
 
 .about header {
@@ -134,32 +129,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.testimonial article * {
-  margin: 5px;
-}
-
-.testimonial header h4 {
-  margin: 6px 0px;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.testimonial header p {
-  margin: 0;
-  opacity: .4;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.testimonial article > p {
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.testimonial footer img {
-  height: 20px;
 }
 
 .footer {

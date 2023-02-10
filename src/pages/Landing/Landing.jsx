@@ -1,5 +1,6 @@
 import styles from './Landing.module.css'
 import { useParams } from 'react-router-dom'
+import Spotify from 'react-spotify-embed'
 
 const Landing = ({user, profile}) => {
   return (
