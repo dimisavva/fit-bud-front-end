@@ -10,7 +10,7 @@ const ProfileCard = ({ profile }) => {
         <img src={photo} alt='poopshit' />
         <header>
           <span>
-            <h1>{profile.name}</h1>
+      <h1>{profile.name}</h1>
           </span>
         </header>
       </article>
