@@ -8,15 +8,12 @@
   background-color: rgba(184, 205, 226, 0.788);
 }
 
-.container main {
-  background-color: white;
-}
-
 .container article, .container > section {
   width: 100%;
   display: flex;
   max-width: 700px;
   flex-direction: column;
+  margin: 20px;
 }
 
 .container p {
@@ -29,6 +26,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: white; 
+  height: 60px;
 }
 
 .container h1 {
@@ -46,9 +45,7 @@
 .container span {
   width: 100%;
   display: flex;
-	margin-top: 10px;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .container div {
@@ -73,11 +70,12 @@
 }
 
 .container > section article {
+  background-color: white;
   justify-content: center;
   padding: 2px;
-  height: 20%;
-  min-height: 100px;
+  height: 200px;
   border-radius: 5px;
+  min-height: 100px;
 }
 
 .container > section h1 {
@@ -93,6 +91,3 @@
   }
 }
 
-a {
-  background-color: white;
-}
