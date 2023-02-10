@@ -63,7 +63,7 @@ const ProfileDetails = (props) => {
         :
         <p>No Exercise yet</p>
         }
-        <h1>Blogs</h1>
+        <h1>Blogs:</h1>
         {profile.blogs.length ?
         <>
           {profile.blogs.map((blog) => (
