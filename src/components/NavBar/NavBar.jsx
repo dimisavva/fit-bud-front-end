@@ -15,11 +15,8 @@ const NavBar = ({ user, handleLogout }) => {
     <ul>
       <li><NavLink to="/profiles">🧑</NavLink></li>
       <li><NavLink to="/meals">🥑</NavLink></li>
-      <li><NavLink to="/meals/new">🥑✨</NavLink></li>
       <li><NavLink to="/blogs">#️⃣</NavLink></li>
-      <li><NavLink to="/blogs/new">#️⃣✨</NavLink></li>
       <li><NavLink to="/exercises">🏋️</NavLink></li>
-      <li><NavLink to="/exercises/new">🚴✨</NavLink></li>
       <li><NavLink to="logout" onClick={handleLogout}>LOG OUT🛌🏽</NavLink></li>
     </ul>
   )
