@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
-import ExerciseCardProfile from "../../components/ExerciseCard/ExerciseCardProfile"
+import ProfileExerciseCard from "../../components/ExerciseCard/ProfileExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
-import BlogCardProfile from "../../components/BlogCard/BlogCardProfile"
-import MealCardNoAuthor from "../../components/MealCard/MealCardNoAuthor"
+import ProfileBlogCard from "../../components/BlogCard/ProfileBlogCard"
+import ProfileMealCard from "../../components/MealCard/ProfileMealCard"
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
@@ -45,7 +45,7 @@ const ProfileDetails = (props) => {
         {profile.meals.length ?
         <>
           {profile.meals.map((meal) => (
-            <MealCardNoAuthor key={meal._id} meal={meal} />
+            <ProfileMealCard key={meal._id} meal={meal} />
           ))}
         </>
         :
@@ -55,7 +55,7 @@ const ProfileDetails = (props) => {
         {profile.exercises.length ?
         <>
           {profile.exercises.map((exercise) => (
-            <ExerciseCardProfile key={exercise._id} exercise={exercise} />
+            <ProfileExerciseCard key={exercise._id} exercise={exercise} />
           ))}
         </>
         :
@@ -65,7 +65,7 @@ const ProfileDetails = (props) => {
         {profile.blogs.length ?
         <>
           {profile.blogs.map((blog) => (
-            <BlogCardProfile key={blog._id} blog={blog}/>
+            <ProfileBlogCard key={blog._id} blog={blog}/>
           ))}
         </>
         :
