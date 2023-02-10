@@ -21,7 +21,7 @@ ____
 [Dimitris Savva](https://github.com/dimisavva)
 
 
-## Technologies Used
+## Technologies Used:
 * React
 * Express
 * Node.js
@@ -35,9 +35,10 @@ ____
 
 
 
-## Next Steps (Ice Box)
+## Next Steps (Ice Box):
 - [ ] User-to-User Direct Messaging feature.
 - [ ] Spotify, Apple Music, other music streaming service implimentation. 
 - [ ] Two type-member login: trainer platform. 
 - [ ] Friendship feature.
 - [ ] Image/URL implementation in forms.
+- [ ] Meal/exercise API. 
