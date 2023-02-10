@@ -19,6 +19,7 @@ const NewMeal = (props) => {
 
   return (
     <main className={styles.container}>
+      <h1>New Meal:</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name-input">Name</label>
         <input
@@ -52,7 +53,7 @@ const NewMeal = (props) => {
           <option value="Protein">Protein</option>
           <option value="Fruit">Fruit</option>
           <option value="Organic">Organic</option>
-          <option value="Cheat Meal">Cheat Meal</option>
+          <option value="CheatMeal">Cheat Meal</option>
         </select>
         <button type="submit">SUBMIT</button>
       </form>

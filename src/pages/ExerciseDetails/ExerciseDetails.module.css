@@ -4,7 +4,7 @@
   overflow: scroll;
   align-items: center;
   flex-direction: column;
-  background-color: var(--card-background);
+  background-color: rgba(184, 205, 226, 0.788);
 }
 
 .container article, .container > section {
@@ -83,4 +83,11 @@
 
 .container > section article p {
   text-indent: 0px;
+}
+
+.container button {
+  color: rgb(3, 3, 3);
+  font-weight: 600;
+  margin: 21px 0px 0px 0px;
+  background: var(--primary);
 }

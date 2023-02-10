@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
-import MealCard from "../../components/MealCard/MealCard"
-import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
+import ExerciseCardProfile from "../../components/ExerciseCard/ExerciseCardProfile"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
-import BlogCard from "../../components/BlogCard/BlogCard"
+import BlogCardProfile from "../../components/BlogCard/BlogCardProfile"
+import MealCardNoAuthor from "../../components/MealCard/MealCardNoAuthor"
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
@@ -37,17 +37,15 @@ const ProfileDetails = (props) => {
   return ( 
     <main className={styles.container}>
       <article>
-        <header>
-          {profile.name}
-          <img src={profile.photo}/>
-        </header>
+          <img src={profile.photo} alt='profile'/>
+          <h2>{profile.name}'s Profile</h2>
       </article>
       <section>
         <h1>Meals:</h1>
         {profile.meals.length ?
         <>
           {profile.meals.map((meal) => (
-            <MealCard key={meal._id} meal={meal} />
+            <MealCardNoAuthor key={meal._id} meal={meal} />
           ))}
         </>
         :
@@ -57,7 +55,7 @@ const ProfileDetails = (props) => {
         {profile.exercises.length ?
         <>
           {profile.exercises.map((exercise) => (
-            <ExerciseCard key={exercise._id} exercise={exercise} />
+            <ExerciseCardProfile key={exercise._id} exercise={exercise} />
           ))}
         </>
         :
@@ -67,7 +65,7 @@ const ProfileDetails = (props) => {
         {profile.blogs.length ?
         <>
           {profile.blogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
+            <BlogCardProfile key={blog._id} blog={blog}/>
           ))}
         </>
         :
