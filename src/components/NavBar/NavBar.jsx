@@ -13,19 +13,19 @@ const NavBar = ({ user, handleLogout }) => {
 
   const protectedLinks = (
     <ul>
-      <li><NavLink to="/profiles">Profiles</NavLink></li>
-      <li><NavLink to="/meals">Meals</NavLink></li> 
-      <li><NavLink to="/meals/new">New Meal</NavLink></li>
-      <li><NavLink to="/blogs">Blogs</NavLink></li>
-      <li><NavLink to="/blogs/new">New Blog</NavLink></li>
-      <li><NavLink to="/exercises">Exercises</NavLink></li>
-      <li><NavLink to="/exercises/new">New Exercise</NavLink></li> 
-      <li><NavLink to="logout" onClick={handleLogout}>LOG OUT</NavLink></li>
+      <li><NavLink to="/profiles">🧑</NavLink></li>
+      <li><NavLink to="/meals">🥑</NavLink></li> 
+      <li><NavLink to="/meals/new">🥑✨</NavLink></li>
+      <li><NavLink to="/blogs">#️⃣</NavLink></li>
+      <li><NavLink to="/blogs/new">#️⃣✨</NavLink></li>
+      <li><NavLink to="/exercises">🏋️</NavLink></li>
+      <li><NavLink to="/exercises/new">🚴✨</NavLink></li> 
+      <li><NavLink to="logout" onClick={handleLogout}>LOG OUT🛌🏽</NavLink></li>
     </ul>
   )
   return (
     <nav className={styles.container}>
-      <NavLink to={'/'}>HOME</NavLink>
+      <NavLink to={'/'}>HOME🫵</NavLink>
       {user ? protectedLinks : publicLinks}
     </nav>
   )
