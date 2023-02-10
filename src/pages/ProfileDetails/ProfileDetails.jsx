@@ -37,10 +37,8 @@ const ProfileDetails = (props) => {
   return ( 
     <main className={styles.container}>
       <article>
-        <header>
           <img src={profile.photo} alt='profile'/>
-          <h1>{profile.name}'s Profile</h1>
-        </header>
+          <h2>{profile.name}'s Profile</h2>
       </article>
       <section>
         <h1>Meals:</h1>

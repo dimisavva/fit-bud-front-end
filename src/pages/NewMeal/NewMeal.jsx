@@ -19,6 +19,7 @@ const NewMeal = (props) => {
 
   return (
     <main className={styles.container}>
+      <h1>New meal:</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name-input">Name</label>
         <input
