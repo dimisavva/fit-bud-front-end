@@ -38,7 +38,7 @@ const ProfileDetails = (props) => {
     <main className={styles.container}>
       <article>
           <img src={profile.photo} alt='profile'/>
-          <h1>{profile.name}'s Profile</h1>
+          <h2>{profile.name}'s Profile</h2>
       </article>
       <section>
         <h1>Meals:</h1>
