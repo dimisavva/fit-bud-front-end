@@ -3,13 +3,10 @@ import { useParams } from "react-router-dom"
 import styles from './ProfileDetails.module.css'
 import Loading from "../Loading/Loading"
 import * as profileService from '../../services/profileService'
-import MealCard from "../../components/MealCard/MealCardNoAuthor"
 import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
-import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
-import { Link } from "react-router-dom"
 import MealCardNoAuthor from "../../components/MealCard/MealCardNoAuthor"
 
 const ProfileDetails = (props) => {
@@ -41,8 +38,8 @@ const ProfileDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
-          {profile.name}
-          <img src={profile.photo}/>
+          <img src={profile.photo} alt='profile'/>
+          <h1>{profile.name}'s Profile</h1>
         </header>
       </article>
       <section>
@@ -70,7 +67,7 @@ const ProfileDetails = (props) => {
         {profile.blogs.length ?
         <>
           {profile.blogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
+            <BlogCard key={blog._id} blog={blog}/>
           ))}
         </>
         :

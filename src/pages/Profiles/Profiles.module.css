@@ -20,12 +20,12 @@ main {
 }
 
 h1{
-  padding: 25px;
+  padding: 28px;
 }
 
 .container h1 {
-  margin: 0;
   margin-top: 10px;
+  margin: 0;
 }
 p {
   margin: 10px;
