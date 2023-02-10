@@ -1,6 +1,5 @@
 .container {
   gap: 14px;
-  width: 100%;
   display: grid;
   padding: 21px;
   grid-template-columns: repeat(1, 1fr);
@@ -11,7 +10,8 @@
     padding-top: 70px;
 }
 .container article {
-  margin-top: 40px;
   border: 1px solid black;
   background-color: white;
+  width: 60%;
+  height: 140px;
 }
