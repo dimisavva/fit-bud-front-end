@@ -8,6 +8,7 @@ import ExerciseCard from "../../components/ExerciseCard/ExerciseCard"
 import NewComment from "../../components/NewComment/NewComment"
 import Comments from "../../components/Comments/ProfileComments"
 import BlogCard from "../../components/BlogCard/BlogCard"
+import AuthorInfo from "../../components/AuthorInfo/AuthorInfo"
 
 const ProfileDetails = (props) => {
   const { id } = useParams()
@@ -38,8 +39,8 @@ const ProfileDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
-          {profile.name}
-          <img src={profile.photo}/>
+          <img src={profile.photo} alt='profile'/>
+          <h1>{profile.name}'s Profile</h1>
         </header>
       </article>
       <section>
@@ -47,7 +48,10 @@ const ProfileDetails = (props) => {
         {profile.meals.length ?
         <>
           {profile.meals.map((meal) => (
-            <MealCard key={meal._id} meal={meal} />
+            <MealCard
+              // content={}  
+              meal={meal} 
+              />
           ))}
         </>
         :
@@ -67,7 +71,7 @@ const ProfileDetails = (props) => {
         {profile.blogs.length ?
         <>
           {profile.blogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
+            <BlogCard key={blog._id} blog={blog}/>
           ))}
         </>
         :
