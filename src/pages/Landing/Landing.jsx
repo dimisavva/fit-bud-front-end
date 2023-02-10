@@ -1,5 +1,6 @@
 import styles from './Landing.module.css'
 import { useParams } from 'react-router-dom'
+import Spotify from 'react-spotify-embed'
 
 const Landing = ({user, profile}) => {
   return (
@@ -10,7 +11,6 @@ const Landing = ({user, profile}) => {
         </section>
         <section className={styles.about}>
           <header>
-            <h3></h3>
             <h1>ABOUT US</h1>
           </header>
           <article>
