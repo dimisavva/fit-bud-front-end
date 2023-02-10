@@ -21,13 +21,12 @@ const Landing = ({user, profile}) => {
         </section>
         <section className={styles.testimonial}>
           <header>
-            <h3>WHO GIVES A HOOT?</h3>
-            <h1>TESTIMONIALS</h1>
+            <h1>DJ MVMT</h1>
           </header>
           <article>
             <header>
-              <h4>Ben Manley</h4>
-              <p>Software Engineer</p>
+              <h4></h4>
+              <p></p>
             </header>
             <p>
               I found Hoot through a friend of mine, and I'm so glad I did. As a night owl, I have a hard time finding blogging apps that fit my lifestyle. The interface is so easy to use and makes it really convenient for me to write my blogs at night.
