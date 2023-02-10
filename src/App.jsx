@@ -221,7 +221,7 @@ const App = () => {
         /> 
 
         <Route 
-          path='/meals/:id'
+          path="/meals/:id"
           element={
             <ProtectedRoute user={user}>
               <MealDetails user={user} handleDeleteMeal={handleDeleteMeal} />
@@ -239,7 +239,7 @@ const App = () => {
         />
 
         <Route 
-          path='/meals/:mealId/comments/:commentId'
+          path="/meals/:mealId/comments/:commentId"
           element={
             <ProtectedRoute user={user}>
               <EditMealComment />
@@ -248,7 +248,7 @@ const App = () => {
         />
 
         <Route 
-          path='/exercises'
+          path="/exercises"
           element={
           <ProtectedRoute user={user}>
             <ExerciseList exercises={exercises}/>
@@ -257,7 +257,7 @@ const App = () => {
         />
 
         <Route 
-          path='/exercises/new'
+          path="/exercises/new"
           element={
           <ProtectedRoute user={user}>
             <NewExercise handleAddExercise={handleAddExercise} />
@@ -266,7 +266,7 @@ const App = () => {
         />
 
         <Route
-          path='/exercises/:id'
+          path="/exercises/:id"
           element={
             <ProtectedRoute user={user}>
               <ExerciseDetails user={user} handleDeleteExercise={handleDeleteExercise} />
@@ -275,7 +275,7 @@ const App = () => {
         />
 
         <Route
-          path='/exercises/:id/edit'
+          path="/exercises/:id/edit"
           element={
             <ProtectedRoute user={user}>
               <EditExercise handleUpdateExercise={handleUpdateExercise} />
@@ -284,7 +284,7 @@ const App = () => {
         /> 
 
         <Route 
-          path='/exercises/:exerciseId/comments/:commentId'
+          path="/exercises/:exerciseId/comments/:commentId"
           element={
             <ProtectedRoute user={user}>
               <EditExerciseComment />
@@ -302,7 +302,7 @@ const App = () => {
         />
 
         <Route 
-          path='/profiles/:id'
+          path="/profiles/:id"
           element={
             <ProtectedRoute user={user}>
               <ProfileDetails user={user}/>
@@ -311,7 +311,7 @@ const App = () => {
         />
 
         <Route 
-          path='/profiles/:profileId/comments/:commentId'
+          path="/profiles/:profileId/comments/:commentId"
           element={
             <ProtectedRoute user={user}>
               <EditProfileComment />
