@@ -43,18 +43,36 @@ const ProfileDetails = (props) => {
         </header>
       </article>
       <section>
-        <h1>Meals</h1>
-        {profile.meals.map((meal) => (
-          <MealCard key={meal._id} meal={meal} />
-        ))}
-        <h1>Exercises</h1>
-        {profile.exercises.map((exercise) => (
-          <ExerciseCard key={exercise._id} exercise={exercise} />
-        ))}
+        <h1>Meals:</h1>
+        {profile.meals.length ?
+        <>
+          {profile.meals.map((meal) => (
+            <MealCard key={meal._id} meal={meal} />
+          ))}
+        </>
+        :
+        <p>No meals yet.</p>
+        }
+        <h1>Exercises:</h1>
+        {profile.exercises.length ?
+        <>
+          {profile.exercises.map((exercise) => (
+            <ExerciseCard key={exercise._id} exercise={exercise} />
+          ))}
+        </>
+        :
+        <p>No Exercise yet</p>
+        }
         <h1>Blogs</h1>
-        {profile.blogs.map((blog) => (
-          <BlogCard key={blog._id} blog={blog} />
-        ))}
+        {profile.blogs.length ?
+        <>
+          {profile.blogs.map((blog) => (
+            <BlogCard key={blog._id} blog={blog} />
+          ))}
+        </>
+        :
+        <p>No Blogs yet</p>
+        }
         <h1>Comments:</h1>
         <NewComment handleAddComment={handleAddComment}/>
         <Comments 
