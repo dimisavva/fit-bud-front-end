@@ -1,21 +1,29 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import styles from './NavBar.module.css'
+import FitBud_home_button from '../../assets/FitBud_home_button.png'
 
 const NavBar = ({ user, handleLogout }) => {
+
+  const publicLinks = (
+    <ul>
+      <li><NavLink to="/login">LOG IN</NavLink></li>
+      <li><NavLink to="/signup">SIGN UP</NavLink></li>
+    </ul>
+  )
+
+  const protectedLinks = (
+    <ul>
+      <li><NavLink to="/profiles">🧑</NavLink></li>
+      <li><NavLink to="/meals">🥑</NavLink></li>
+      <li><NavLink to="/blogs">#️⃣</NavLink></li>
+      <li><NavLink to="/exercises">🏋️</NavLink></li>
+      <li><NavLink to="/" onClick={handleLogout}>LOG OUT🛌🏽</NavLink></li>
+    </ul>
+  )
   return (
-    <nav>
-      {user ?
-        <ul>
-          <li>Welcome, {user.name}</li>
-          <li><Link to="/profiles">Profiles</Link></li>
-          <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-          <li><Link to="/change-password">Change Password</Link></li>
-        </ul>
-      :
-        <ul>
-          <li><Link to="/login">Log In</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-        </ul>
-      }
+    <nav className={styles.container}>
+      <NavLink className={styles.navLink} to={'/'}><img src={FitBud_home_button} alt="FitBud Logo" /></NavLink>
+      {user ? protectedLinks : publicLinks}
     </nav>
   )
 }

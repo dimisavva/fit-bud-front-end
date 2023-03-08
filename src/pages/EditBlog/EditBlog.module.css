@@ -1,0 +1,36 @@
+.container {
+  height: 800px;
+  display: flex;
+  overflow-x: hidden;
+  padding: 100px;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(184, 205, 226, 0.788);
+}
+
+.container input, textarea, select, button { 
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  resize: vertical;
+  border-radius: 5px;
+  margin: 7px 0px 14px 0px;
+  border: 1px solid var(--border);
+  font-family: canada-type-gibson, sans-serif;
+}
+
+.container textarea {
+  min-height: 50px;
+}
+
+.container label {
+  font-weight: 600;
+  margin: 7px 0px 14px 0px;
+}
+
+.container button {
+  color: rgb(3, 3, 3);
+  font-weight: 600;
+  margin: 21px 0px 0px 0px;
+  background: var(--primary);
+}
